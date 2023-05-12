@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mdtp_hour_picker_description">لغزنده دایره‌ای ساعت</string>
+    <string name="mdtp_minute_picker_description">لغزنده دایره‌ای دقیقه</string>
+    <string name="mdtp_second_picker_description">لغزنده دایره ای ثانیه</string>
+    <string name="mdtp_select_hours">انتخاب ساعت</string>
+    <string name="mdtp_select_minutes">انتخاب دقیقه</string>
+    <string name="mdtp_select_seconds">انتخاب ثانیه</string>
+    <string name="mdtp_day_picker_description">روزهای ماه به صورت جدول</string>
+    <string name="mdtp_year_picker_description">لیست سال ها</string>
+    <string name="mdtp_select_day">ماه و روز را انتخاب کنید</string>
+    <string name="mdtp_select_year">سال را انتخاب کنید</string>
+    <string name="mdtp_item_is_selected">%s انتخاب شد</string>
+    <string name="mdtp_deleted_key">%s حذف شد</string>
+    <string name="mdtp_next_month_arrow_description">ماه بعد</string>
+    <string name="mdtp_previous_month_arrow_description">ماه قبل</string>
+    <string name="mdtp_am">ق.ظ</string>
+    <string name="mdtp_pm">ب.ظ</string>
+
+    <!-- Calendars -->
+    <string-array name="persianMonths">
+        <item>فروردین</item>
+        <item>اردیبهشت</item>
+        <item>خرداد</item>
+        <item>تیر</item>
+        <item>مرداد</item>
+        <item>شهریور</item>
+        <item>مهر</item>
+        <item>آبان</item>
+        <item>آذر</item>
+        <item>دی</item>
+        <item>بهمن</item>
+        <item>اسفند</item>
+    </string-array>
+    <string-array name="shortPersianMonths">
+        <item>فرو</item>
+        <item>ارد</item>
+        <item>خرد</item>
+        <item>تیر</item>
+        <item>مرد</item>
+        <item>شهر</item>
+        <item>مهر</item>
+        <item>آبا</item>
+        <item>آذر</item>
+        <item>دی</item>
+        <item>بهم</item>
+        <item>اسف</item>
+    </string-array>
+    <string-array name="indianMonths" translatable="false">
+        <item>چیت</item>
+        <item>ویساخا</item>
+        <item>جیشطا</item>
+        <item>آشاد</item>
+        <item>شراوان</item>
+        <item>بادراپاد</item>
+        <item>آشوین</item>
+        <item>کارتیک</item>
+        <item>مارگشیرش</item>
+        <item>پوش</item>
+        <item>ماگ</item>
+        <item>فالگون</item>
+    </string-array>
+    <string-array name="shortIndianMonths" translatable="false">
+        <item>چیت</item>
+        <item>ویس</item>
+        <item>جشط</item>
+        <item>آشا</item>
+        <item>شرا</item>
+        <item>باد</item>
+        <item>آشو</item>
+        <item>کار</item>
+        <item>مار</item>
+        <item>پوش</item>
+        <item>ماگ</item>
+        <item>فال</item>
+    </string-array>
+</resources>

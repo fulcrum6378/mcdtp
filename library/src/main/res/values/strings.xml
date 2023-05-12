@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="mdtp_hour_picker_description">Hours circular slider</string>
+    <string name="mdtp_minute_picker_description">Minutes circular slider</string>
+    <string name="mdtp_second_picker_description">Seconds circular slider</string>
+    <string name="mdtp_select_hours">Select hours</string>
+    <string name="mdtp_select_minutes">Select minutes</string>
+    <string name="mdtp_select_seconds">Select seconds</string>
+    <string name="mdtp_day_picker_description">Month grid of days</string>
+    <string name="mdtp_year_picker_description">Year list</string>
+    <string name="mdtp_select_day">Select month and day</string>
+    <string name="mdtp_select_year">Select year</string>
+    <string name="mdtp_item_is_selected">%1$s selected</string>
+    <string name="mdtp_deleted_key">%1$s deleted</string>
+    <string name="mdtp_next_month_arrow_description">Next Month</string>
+    <string name="mdtp_previous_month_arrow_description">Previous Month</string>
+    <string name="mdtp_time_placeholder" translatable="false">00</string>
+    <string name="mdtp_time_separator" translatable="false">:</string>
+    <string name="mdtp_am" tools:ignore="MissingTranslation">AM</string>
+    <string name="mdtp_pm" tools:ignore="MissingTranslation">PM</string>
+
+    <!-- Calendars -->
+    <string-array name="persianMonths" translatable="false">
+        <item>Farvardin</item>
+        <item>Ordibehesht</item>
+        <item>Khordad</item>
+        <item>Tir</item>
+        <item>Mordad</item>
+        <item>Shahrivar</item>
+        <item>Mehr</item>
+        <item>Aban</item>
+        <item>Azar</item>
+        <item>Dey</item>
+        <item>Bahman</item>
+        <item>Esfand</item>
+    </string-array>
+    <string-array name="shortPersianMonths" translatable="false">
+        <item>Far</item>
+        <item>Ord</item>
+        <item>Kho</item>
+        <item>Tir</item>
+        <item>Mor</item>
+        <item>Sha</item>
+        <item>Meh</item>
+        <item>Aba</item>
+        <item>Aza</item>
+        <item>Dey</item>
+        <item>Bah</item>
+        <item>Esf</item>
+    </string-array>
+    <string-array name="indianMonths" translatable="false">
+        <item>Chaitra</item>
+        <item>Vaisakha</item>
+        <item>Jyaistha</item>
+        <item>Asadha</item>
+        <item>Sravana</item>
+        <item>Bhadra</item>
+        <item>Asvina</item>
+        <item>Kartika</item>
+        <item>Agrahayana</item>
+        <item>Pausa</item>
+        <item>Magha</item>
+        <item>Phalguna</item>
+    </string-array>
+    <string-array name="shortIndianMonths" translatable="false">
+        <item>Cha</item>
+        <item>Vai</item>
+        <item>Jya</item>
+        <item>Asa</item>
+        <item>Sra</item>
+        <item>Bha</item>
+        <item>Asv</item>
+        <item>Kar</item>
+        <item>Agr</item>
+        <item>Pau</item>
+        <item>Mag</item>
+        <item>Pha</item>
+    </string-array>
+</resources>
