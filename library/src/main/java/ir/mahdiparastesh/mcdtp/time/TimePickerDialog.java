@@ -34,7 +34,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import ir.mahdiparastesh.mcdtp.HapticFeedbackController;
 import ir.mahdiparastesh.mcdtp.McdtpUtils;
 import ir.mahdiparastesh.mcdtp.R;
 import ir.mahdiparastesh.mcdtp.time.RadialPickerLayout.OnValueSelectedListener;
@@ -66,14 +65,12 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     public static final int AM = 0;
     public static final int PM = 1;
 
-    // Delay before starting the pulse animation, in ms.
+    /** Delay before starting the pulse animation, in ms. */
     private static final int PULSE_ANIMATOR_DELAY = 300;
 
     private OnTimeSetListener mCallback;
     private DialogInterface.OnCancelListener mOnCancelListener;
     private DialogInterface.OnDismissListener mOnDismissListener;
-
-    private HapticFeedbackController mHapticFeedbackController;
 
     private Button mOkButton;
     private TextView mHourView;
@@ -145,7 +142,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         return TimePickerDialog.newInstance(callback, hourOfDay, minute, 0);
     }
 
-    @SuppressWarnings({"unused", "SameParameterValue", "WeakerAccess"})
+    @SuppressWarnings({"unused", "SameParameterValue", "WeakerAccess", "UnusedReturnValue"})
     public static TimePickerDialog newInstance(OnTimeSetListener callback) {
         Calendar now = Calendar.getInstance();
         return TimePickerDialog.newInstance(
@@ -182,6 +179,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         mAccentColor = Color.parseColor(color);
     }
 
+    @SuppressWarnings("unused")
     public void setAccentColor(@ColorInt int color) {
         mAccentColor = Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
     }
@@ -490,8 +488,6 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         mAmText = amPmTexts[0];
         mPmText = amPmTexts[1];
 
-        mHapticFeedbackController = new HapticFeedbackController(getActivity());
-
         if (mTimePicker != null) {
             mInitialTime = new Timepoint(mTimePicker.getHours(), mTimePicker.getMinutes(), mTimePicker.getSeconds());
         }
@@ -789,15 +785,8 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        mHapticFeedbackController.start();
-    }
-
-    @Override
     public void onPause() {
         super.onPause();
-        mHapticFeedbackController.stop();
         if (mDismissOnPause) dismiss();
     }
 
@@ -815,7 +804,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
 
     @Override
     public void tryVibrate() {
-        if (mVibrate) mHapticFeedbackController.tryVibrate();
+        if (mVibrate) McdtpUtils.shake(requireActivity(), null);
     }
 
     private void updateAmPmDisplay(int amOrPm) {

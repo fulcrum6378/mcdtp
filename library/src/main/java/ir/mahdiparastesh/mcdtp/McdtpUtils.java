@@ -12,7 +12,9 @@ import android.icu.text.DateFormatSymbols;
 import android.icu.util.Calendar;
 import android.icu.util.GregorianCalendar;
 import android.icu.util.TimeZone;
+import android.media.AudioManager;
 import android.os.Build;
+import android.os.SystemClock;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.os.VibratorManager;
@@ -33,6 +35,8 @@ public class McdtpUtils {
     public static final int SELECTED_ALPHA_THEME_DARK = 255;
     /** Alpha level for fully opaque. */
     public static final int FULL_ALPHA = 255;
+
+    private static long mLastVibrate;
 
     /** Try to speak the specified text, for accessibility. Only available on JB or later. */
     public static void tryAccessibilityAnnounce(View view, CharSequence text) {
@@ -141,12 +145,11 @@ public class McdtpUtils {
         return createCalendar(type, null);
     }
 
-    // only this one needs globalisation.
     public static DateFormatSymbols localSymbols(
             Context c, Class<? extends Calendar> calendarType, Locale locale) {
         DateFormatSymbols symbols = DateFormatSymbols.getInstance(locale);
         switch (calendarType.getSimpleName()) {
-            case "HumanistIranianCalendar" -> {
+            case "PersianCalendar", "HumanistIranianCalendar", "ImperialIranianCalendar" -> {
                 symbols.setMonths(c.getResources().getStringArray(R.array.persianMonths));
                 symbols.setShortMonths(c.getResources().getStringArray(R.array.shortPersianMonths));
             }
@@ -168,5 +171,25 @@ public class McdtpUtils {
                 McdtpUtils.localSymbols(c, calendar.getClass())
                         .getMonths()[calendar.get(Calendar.MONTH)]
                 + " " + calendar.get(Calendar.YEAR);
+    }
+
+    public static void shake(Context c, @Nullable Long dur) {
+        long mDur = dur != null ? dur : 50L;
+        if (((AudioManager) c.getSystemService(Context.AUDIO_SERVICE))
+                .getRingerMode() == AudioManager.RINGER_MODE_SILENT) return;
+        long now = SystemClock.uptimeMillis();
+        if (now - mLastVibrate < 125L) return;
+
+        Vibrator vib;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+            vib = ((VibratorManager) c.getSystemService(Context.VIBRATOR_MANAGER_SERVICE))
+                    .getDefaultVibrator();
+        else vib = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
+        if (!vib.hasVibrator()) return;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            vib.vibrate(VibrationEffect
+                    .createOneShot(mDur, VibrationEffect.DEFAULT_AMPLITUDE));
+        else vib.vibrate(mDur);
+        mLastVibrate = now;
     }
 }

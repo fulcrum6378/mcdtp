@@ -36,7 +36,6 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 
-import ir.mahdiparastesh.mcdtp.HapticFeedbackController;
 import ir.mahdiparastesh.mcdtp.McdtpUtils;
 import ir.mahdiparastesh.mcdtp.R;
 
@@ -119,8 +118,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private DefaultDateRangeLimiter<CAL> mDefaultLimiter;
     private DateRangeLimiter<CAL> mDateRangeLimiter;
 
-    private HapticFeedbackController mHapticFeedbackController;
-
     private boolean mDelayAnimation = true;
 
     // Accessibility strings.
@@ -153,7 +150,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         return ret;
     }
 
-    @SuppressWarnings({"unused", "WeakerAccess"})
+    @SuppressWarnings({"unused", "UnusedReturnValue"})
     public static <CAL extends Calendar> DatePickerDialog<CAL> newInstance(OnDateSetListener callback) {
         return (DatePickerDialog<CAL>) DatePickerDialog.newInstance(callback, new GregorianCalendar());
     }
@@ -366,7 +363,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
                 mYearPickerView.postSetSelectionFromTop(listPosition, listPositionOffset);
         }
 
-        mHapticFeedbackController = new HapticFeedbackController(activity);
         return view;
     }
 
@@ -382,15 +378,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        mHapticFeedbackController.start();
-    }
-
-    @Override
     public void onPause() {
         super.onPause();
-        mHapticFeedbackController.stop();
         if (mDismissOnPause) dismiss();
     }
 
@@ -517,6 +506,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         mAccentColor = Color.parseColor(color);
     }
 
+    @SuppressWarnings("unused")
     public void setAccentColor(@ColorInt int color) {
         mAccentColor = Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
     }
@@ -804,7 +794,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
 
     @Override
     public void tryVibrate() {
-        if (mVibrate) mHapticFeedbackController.tryVibrate();
+        if (mVibrate) McdtpUtils.shake(requireActivity(), null);
     }
 
     @Override
