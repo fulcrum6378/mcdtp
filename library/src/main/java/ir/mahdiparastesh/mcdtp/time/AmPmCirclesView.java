@@ -71,7 +71,7 @@ public class AmPmCirclesView extends View {
         mTouchedColor = McdtpUtils.darkenColor(mSelectedColor);
         mAmPmSelectedTextColor = ContextCompat.getColor(context, R.color.white);
 
-        mPaint.setTypeface(McdtpUtils.mdtpAmPmFont(context));
+        mPaint.setTypeface(McdtpUtils.amPmFont(context));
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 

@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.FontRes;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,6 +59,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     private static final String KEY_VERSION = "version";
     private static final String KEY_TIMEPOINT_LIMITER = "timepoint_limiter";
     private static final String KEY_LOCALE = "locale";
+    private static final String KEY_FONT_RES = "font_resource";
 
     public static final int HOUR_INDEX = 0;
     public static final int MINUTE_INDEX = 1;
@@ -103,6 +105,8 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     private DefaultTimepointLimiter mDefaultLimiter = new DefaultTimepointLimiter();
     private TimepointLimiter mLimiter = mDefaultLimiter;
     private Locale mLocale = Locale.getDefault();
+    @FontRes
+    private Integer mFontRes = null;
 
     // For hardware IME input.
     private char mPlaceholderText;
@@ -377,9 +381,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         mInKbMode = false;
     }
 
-    /**
-     * Set which layout version the picker should use
-     */
+    /** Set which layout version the picker should use  */
     public void setVersion(Version version) {
         mVersion = version;
     }
@@ -431,6 +433,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
             mVersion = (Version) savedInstanceState.getSerializable(KEY_VERSION);
             mLimiter = savedInstanceState.getParcelable(KEY_TIMEPOINT_LIMITER);
             mLocale = (Locale) savedInstanceState.getSerializable(KEY_LOCALE);
+            mFontRes = savedInstanceState.getInt(KEY_FONT_RES);
 
             /*
             If the user supplied a custom limiter, we need to create a new default one to prevent
@@ -488,9 +491,8 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         mAmText = amPmTexts[0];
         mPmText = amPmTexts[1];
 
-        if (mTimePicker != null) {
-            mInitialTime = new Timepoint(mTimePicker.getHours(), mTimePicker.getMinutes(), mTimePicker.getSeconds());
-        }
+        if (mTimePicker != null) mInitialTime = new Timepoint(
+                mTimePicker.getHours(), mTimePicker.getMinutes(), mTimePicker.getSeconds());
 
         mInitialTime = roundToNearest(mInitialTime);
 
@@ -520,7 +522,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
             tryVibrate();
         });
 
-        Typeface font1 = McdtpUtils.mdtpFont(context, false);
+        Typeface buttonFont = McdtpUtils.buttonFont(context, mFontRes);
         mOkButton = view.findViewById(R.id.ok);
         mOkButton.setOnClickListener(v -> {
             if (mInKbMode && isTypedTimeFullyLegal()) {
@@ -532,7 +534,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
             dismiss();
         });
         mOkButton.setOnKeyListener(keyboardListener);
-        mOkButton.setTypeface(font1);
+        mOkButton.setTypeface(buttonFont);
         mOkButton.setText(android.R.string.ok);
 
         Button mCancelButton = view.findViewById(R.id.cancel);
@@ -540,7 +542,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
             tryVibrate();
             if (getDialog() != null) getDialog().cancel();
         });
-        mCancelButton.setTypeface(font1);
+        mCancelButton.setTypeface(buttonFont);
         mCancelButton.setText(android.R.string.cancel);
         mCancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
 
@@ -853,6 +855,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
             outState.putSerializable(KEY_VERSION, mVersion);
             outState.putParcelable(KEY_TIMEPOINT_LIMITER, mLimiter);
             outState.putSerializable(KEY_LOCALE, mLocale);
+            outState.putInt(KEY_FONT_RES, mFontRes);
         }
     }
 
@@ -912,8 +915,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         return mLimiter.isPmDisabled();
     }
 
-    /**
-     * Round a given Timepoint to the nearest valid Timepoint
+    /** Round a given Timepoint to the nearest valid Timepoint
      */
     private Timepoint roundToNearest(@NonNull Timepoint time) {
         return roundToNearest(time, null);
@@ -924,9 +926,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         return mLimiter.roundToNearest(time, type, getPickerResolution());
     }
 
-    /**
-     * Get the configured resolution of the current picker in terms of Timepoint components
-     */
+    /** Get the configured resolution of the current picker in terms of Timepoint components */
     @NonNull
     Timepoint.TYPE getPickerResolution() {
         if (mEnableSeconds) return Timepoint.TYPE.SECOND;

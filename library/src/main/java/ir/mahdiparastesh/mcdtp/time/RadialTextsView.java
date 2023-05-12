@@ -75,8 +75,8 @@ public class RadialTextsView extends View {
         // Set up the paint.
         int textColorRes = McdtpUtils.night(context) ? R.color.white : R.color.numbers_text_color;
         mPaint.setColor(ContextCompat.getColor(context, textColorRes));
-        mTypefaceLight = McdtpUtils.mdtpTimeCircleFont(context, false);
-        mTypefaceRegular = McdtpUtils.mdtpTimeCircleFont(context, true);
+        mTypefaceLight = McdtpUtils.timeCircleFont(context, false);
+        mTypefaceRegular = McdtpUtils.timeCircleFont(context, true);
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 

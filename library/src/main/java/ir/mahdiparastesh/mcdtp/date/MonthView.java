@@ -34,7 +34,6 @@ import ir.mahdiparastesh.mcdtp.date.MonthAdapter.CalendarDay;
 public abstract class MonthView<CAL extends Calendar> extends View {
 
     protected static final int DEFAULT_SELECTED_DAY = -1;
-    protected static final int DEFAULT_WEEK_START = Calendar.SUNDAY; // TODO
     protected static final int DEFAULT_NUM_DAYS = 7;
     protected static final int DEFAULT_NUM_ROWS = 6;
     protected static final int MAX_NUM_ROWS = 6;
@@ -70,7 +69,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
     protected boolean mHasToday = false;
     protected int mSelectedDay = -1;
     protected int mToday = DEFAULT_SELECTED_DAY;
-    protected int mWeekStart = DEFAULT_WEEK_START;
+    protected int mWeekStart;
     protected final int mNumDays = DEFAULT_NUM_DAYS;
     protected int mNumCells = mNumDays;
 
@@ -188,7 +187,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
             mMonthTitlePaint.setFakeBoldText(true);
         mMonthTitlePaint.setAntiAlias(true);
         mMonthTitlePaint.setTextSize(MONTH_LABEL_TEXT_SIZE);
-        mMonthTitlePaint.setTypeface(McdtpUtils.mdtpMonthTitleFont(getContext()));
+        mMonthTitlePaint.setTypeface(McdtpUtils.monthTitleFont(getContext()));
         mMonthTitlePaint.setColor(mDayTextColor);
         mMonthTitlePaint.setTextAlign(Align.CENTER);
         mMonthTitlePaint.setStyle(Style.FILL);
@@ -205,7 +204,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mMonthDayLabelPaint.setAntiAlias(true);
         mMonthDayLabelPaint.setTextSize(MONTH_DAY_LABEL_TEXT_SIZE);
         mMonthDayLabelPaint.setColor(mMonthDayTextColor);
-        mMonthDayLabelPaint.setTypeface(McdtpUtils.mdtpDayOfWeekFont(getContext()));
+        mMonthDayLabelPaint.setTypeface(McdtpUtils.dayOfWeekFont(getContext()));
         mMonthDayLabelPaint.setStyle(Style.FILL);
         mMonthDayLabelPaint.setTextAlign(Align.CENTER);
         mMonthDayLabelPaint.setFakeBoldText(true);
@@ -244,9 +243,8 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mYear = year;
 
         // Figure out what day today is
-        //final Time today = new Time(Time.getCurrentTimezone());
-        //today.setToNow();
-        final CAL today = McdtpUtils.createCalendar(mController.getCalendarType(), mController.getTimeZone());
+        final CAL today = McdtpUtils.createCalendar(
+                mController.getCalendarType(), mController.getTimeZone());
         mHasToday = false;
         mToday = -1;
 
@@ -255,11 +253,8 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mCalendar.set(Calendar.DAY_OF_MONTH, 1);
         mDayOfWeekStart = mCalendar.get(Calendar.DAY_OF_WEEK);
 
-        if (weekStart != -1) {
-            mWeekStart = weekStart;
-        } else {
-            mWeekStart = mCalendar.getFirstDayOfWeek();
-        }
+        if (weekStart != -1) mWeekStart = weekStart;
+        else mWeekStart = mCalendar.getFirstDayOfWeek();
 
         mNumCells = mCalendar.getActualMaximum(Calendar.DAY_OF_MONTH);
         for (int i = 0; i < mNumCells; i++) {

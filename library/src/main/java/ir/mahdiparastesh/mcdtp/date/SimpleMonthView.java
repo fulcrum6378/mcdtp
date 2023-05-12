@@ -24,13 +24,13 @@ public class SimpleMonthView<CAL extends Calendar> extends MonthView<CAL> {
         if (isHighlighted(year, month, day) && mSelectedDay != day) {
             canvas.drawCircle(x, y + MINI_DAY_NUMBER_TEXT_SIZE - DAY_HIGHLIGHT_CIRCLE_MARGIN,
                     DAY_HIGHLIGHT_CIRCLE_SIZE, mSelectedCirclePaint);
-            mMonthNumPaint.setTypeface(McdtpUtils.mdtpDayOfMonth(getContext(), true));
-        } else mMonthNumPaint.setTypeface(McdtpUtils.mdtpDayOfMonth(getContext(), false));
+            mMonthNumPaint.setTypeface(McdtpUtils.dayOfMonth(getContext(), true));
+        } else mMonthNumPaint.setTypeface(McdtpUtils.dayOfMonth(getContext(), false));
 
         if (mController.isOutOfRange(year, month, day)) {
             mMonthNumPaint.setColor(mDisabledDayTextColor);
         } else if (mSelectedDay == day) {
-            mMonthNumPaint.setTypeface(McdtpUtils.mdtpDayOfMonth(getContext(), true));
+            mMonthNumPaint.setTypeface(McdtpUtils.dayOfMonth(getContext(), true));
             mMonthNumPaint.setColor(mSelectedDayTextColor);
         } else if (mHasToday && mToday == day) {
             mMonthNumPaint.setColor(mTodayNumberColor);

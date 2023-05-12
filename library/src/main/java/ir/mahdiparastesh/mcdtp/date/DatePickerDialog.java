@@ -27,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.FontRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.core.content.ContextCompat;
@@ -73,6 +74,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private static final String KEY_SCROLL_ORIENTATION = "scrollorientation";
     private static final String KEY_LOCALE = "locale";
     private static final String KEY_CALENDAR_TYPE = "calendar_type";
+    private static final String KEY_FONT_RES = "font_resource";
 
     private static final int ANIMATION_DURATION = 300;
     private static final int ANIMATION_DELAY = 500;
@@ -117,6 +119,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private ScrollOrientation mScrollOrientation;
     private DefaultDateRangeLimiter<CAL> mDefaultLimiter;
     private DateRangeLimiter<CAL> mDateRangeLimiter;
+    @FontRes
+    private Integer mFontRes = null;
 
     private boolean mDelayAnimation = true;
 
@@ -237,6 +241,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         outState.putSerializable(KEY_VERSION, mVersion);
         outState.putSerializable(KEY_SCROLL_ORIENTATION, mScrollOrientation);
         outState.putParcelable(KEY_DATERANGELIMITER, mDateRangeLimiter);
+        outState.putInt(KEY_FONT_RES, mFontRes);
         outState.putSerializable(KEY_LOCALE, mLocale);
         outState.putSerializable(KEY_TIMEZONE, mTimezone);
     }
@@ -271,6 +276,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             mVersion = (Version) savedInstanceState.getSerializable(KEY_VERSION);
             mScrollOrientation = (ScrollOrientation) savedInstanceState.getSerializable(KEY_SCROLL_ORIENTATION);
             mDateRangeLimiter = savedInstanceState.getParcelable(KEY_DATERANGELIMITER);
+            mFontRes = savedInstanceState.getInt(KEY_FONT_RES);
 
             setLocale((Locale) savedInstanceState.getSerializable(KEY_LOCALE));
             if (mDateRangeLimiter instanceof DefaultDateRangeLimiter)
@@ -317,14 +323,14 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         animation2.setDuration(ANIMATION_DURATION);
         mAnimator.setOutAnimation(animation2);
 
-        Typeface font1 = McdtpUtils.mdtpFont(activity, false);
+        Typeface buttonFont = McdtpUtils.buttonFont(activity, mFontRes);
         Button okButton = view.findViewById(R.id.ok);
         okButton.setOnClickListener(v -> {
             tryVibrate();
             notifyOnDateListener();
             dismiss();
         });
-        okButton.setTypeface(font1);
+        okButton.setTypeface(buttonFont);
         okButton.setText(android.R.string.ok);
 
         Button cancelButton = view.findViewById(R.id.cancel);
@@ -332,7 +338,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             tryVibrate();
             if (getDialog() != null) getDialog().cancel();
         });
-        cancelButton.setTypeface(font1);
+        cancelButton.setTypeface(buttonFont);
         cancelButton.setText(android.R.string.cancel);
         cancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
 

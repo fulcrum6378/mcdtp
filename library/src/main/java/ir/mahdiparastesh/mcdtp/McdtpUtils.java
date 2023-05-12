@@ -21,8 +21,10 @@ import android.os.VibratorManager;
 import android.util.TypedValue;
 import android.view.View;
 
+import androidx.annotation.FontRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.Locale;
 
@@ -88,28 +90,27 @@ public class McdtpUtils {
         return calendar;
     }
 
-    public static Typeface mdtpFont(Context c, boolean bold) {
-        return Typeface.DEFAULT;
-        //TODO return ResourcesCompat.getFont(c, bold ? R.font.bold : R.font.normal);
+    public static Typeface buttonFont(Context c, @FontRes Integer font) {
+        return font != null ? ResourcesCompat.getFont(c, font) : Typeface.SANS_SERIF;
     }
 
-    public static Typeface mdtpAmPmFont(Context c) {
+    public static Typeface amPmFont(Context c) {
         return Typeface.create("sans-serif", Typeface.NORMAL);
     }
 
-    public static Typeface mdtpTimeCircleFont(Context c, boolean innerCircleIn24HM) {
+    public static Typeface timeCircleFont(Context c, boolean innerCircleIn24HM) {
         return Typeface.create("sans-serif", Typeface.NORMAL);
     }
 
-    public static Typeface mdtpMonthTitleFont(Context c) {
+    public static Typeface monthTitleFont(Context c) {
         return Typeface.create("sans-serif", Typeface.BOLD);
     }
 
-    public static Typeface mdtpDayOfWeekFont(Context c) {
+    public static Typeface dayOfWeekFont(Context c) {
         return Typeface.create("sans-serif-light", Typeface.BOLD);
     }
 
-    public static Typeface mdtpDayOfMonth(Context c, boolean isHighlighted) {
+    public static Typeface dayOfMonth(Context c, boolean isHighlighted) {
         return Typeface.create(Typeface.DEFAULT, isHighlighted ? Typeface.BOLD : Typeface.NORMAL);
     }
 

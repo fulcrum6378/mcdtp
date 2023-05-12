@@ -160,9 +160,7 @@ public abstract class MonthAdapter<CAL extends Calendar>
         if (day != null) onDayTapped(day);
     }
 
-    /**
-     * Maintains the same hour/min/sec but moves the day to the tapped day.
-     */
+    /** Maintains the same hour/min/sec but moves the day to the tapped day. */
     protected void onDayTapped(CalendarDay<CAL> day) {
         mController.tryVibrate();
         mController.onDayOfMonthSelected(day.year, day.month, day.day);
@@ -173,19 +171,22 @@ public abstract class MonthAdapter<CAL extends Calendar>
 
         public MonthViewHolder(MonthView itemView) {
             super(itemView);
-
         }
 
-        void bind(int position, DatePickerController<CAL> mController, CalendarDay<CAL> selectedCalendarDay) {
-            final int month = (position + mController.getStartDate().get(Calendar.MONTH)) % MONTHS_IN_YEAR;
-            final int year = (position + mController.getStartDate().get(Calendar.MONTH)) / MONTHS_IN_YEAR + mController.getMinYear();
+        void bind(int position, DatePickerController<CAL> mController,
+                  CalendarDay<CAL> selectedCalendarDay) {
+            final int month = (position + mController.getStartDate().get(Calendar.MONTH))
+                    % MONTHS_IN_YEAR;
+            final int year = (position + mController.getStartDate().get(Calendar.MONTH))
+                    / MONTHS_IN_YEAR + mController.getMinYear();
 
             int selectedDay = -1;
             if (isSelectedDayInMonth(selectedCalendarDay, year, month))
                 selectedDay = selectedCalendarDay.day;
 
             //noinspection unchecked
-            ((MonthView<CAL>) itemView).setMonthParams(selectedDay, year, month, mController.getFirstDayOfWeek());
+            ((MonthView<CAL>) itemView)
+                    .setMonthParams(selectedDay, year, month, mController.getFirstDayOfWeek());
             this.itemView.invalidate();
         }
 
