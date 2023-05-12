@@ -56,29 +56,29 @@ public class AmPmCirclesView extends View {
     public void initialize(Context context, Locale locale, TimePickerController controller, int amOrPm) {
         if (mIsInitialized) return;
 
-        mAmPmDisabledTextColor = ContextCompat.getColor(context, R.color.mdtp_date_picker_text_disabled);
+        mAmPmDisabledTextColor = ContextCompat.getColor(context, R.color.date_picker_text_disabled);
         if (McdtpUtils.night(context)) {
-            mUnselectedColor = ContextCompat.getColor(context, R.color.mdtp_circle_background_dark_theme);
-            mAmPmTextColor = ContextCompat.getColor(context, R.color.mdtp_white);
+            mUnselectedColor = ContextCompat.getColor(context, R.color.circle_background_dark_theme);
+            mAmPmTextColor = ContextCompat.getColor(context, R.color.white);
             mSelectedAlpha = SELECTED_ALPHA_THEME_DARK;
         } else {
-            mUnselectedColor = ContextCompat.getColor(context, R.color.mdtp_white);
-            mAmPmTextColor = ContextCompat.getColor(context, R.color.mdtp_ampm_text_color);
+            mUnselectedColor = ContextCompat.getColor(context, R.color.white);
+            mAmPmTextColor = ContextCompat.getColor(context, R.color.ampm_text_color);
             mSelectedAlpha = SELECTED_ALPHA;
         }
 
         mSelectedColor = controller.getAccentColor();
         mTouchedColor = McdtpUtils.darkenColor(mSelectedColor);
-        mAmPmSelectedTextColor = ContextCompat.getColor(context, R.color.mdtp_white);
+        mAmPmSelectedTextColor = ContextCompat.getColor(context, R.color.white);
 
         mPaint.setTypeface(McdtpUtils.mdtpAmPmFont(context));
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 
         mCircleRadiusMultiplier =
-                Float.parseFloat(context.getString(R.string.mdtp_circle_radius_multiplier));
+                Float.parseFloat(context.getString(R.string.circle_radius_multiplier));
         mAmPmCircleRadiusMultiplier =
-                Float.parseFloat(context.getString(R.string.mdtp_ampm_circle_radius_multiplier));
+                Float.parseFloat(context.getString(R.string.ampm_circle_radius_multiplier));
         String[] amPmTexts = new DateFormatSymbols(locale).getAmPmStrings();
         mAmText = amPmTexts[0];
         mPmText = amPmTexts[1];

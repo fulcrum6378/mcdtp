@@ -92,27 +92,27 @@ public class RadialSelectorView extends View {
         mIs24HourMode = controller.is24HourMode();
         if (mIs24HourMode || controller.getVersion() != TimePickerDialog.Version.VERSION_1) {
             mCircleRadiusMultiplier = Float.parseFloat(
-                    res.getString(R.string.mdtp_circle_radius_multiplier_24HourMode));
+                    res.getString(R.string.circle_radius_multiplier_24HourMode));
         } else {
             mCircleRadiusMultiplier = Float.parseFloat(
-                    res.getString(R.string.mdtp_circle_radius_multiplier));
+                    res.getString(R.string.circle_radius_multiplier));
             mAmPmCircleRadiusMultiplier =
-                    Float.parseFloat(res.getString(R.string.mdtp_ampm_circle_radius_multiplier));
+                    Float.parseFloat(res.getString(R.string.ampm_circle_radius_multiplier));
         }
 
         // Calculate values for the radius size(s) of the numbers circle(s).
         mHasInnerCircle = hasInnerCircle;
         if (hasInnerCircle) {
             mInnerNumbersRadiusMultiplier =
-                    Float.parseFloat(res.getString(R.string.mdtp_numbers_radius_multiplier_inner));
+                    Float.parseFloat(res.getString(R.string.numbers_radius_multiplier_inner));
             mOuterNumbersRadiusMultiplier =
-                    Float.parseFloat(res.getString(R.string.mdtp_numbers_radius_multiplier_outer));
+                    Float.parseFloat(res.getString(R.string.numbers_radius_multiplier_outer));
         } else {
             mNumbersRadiusMultiplier =
-                    Float.parseFloat(res.getString(R.string.mdtp_numbers_radius_multiplier_normal));
+                    Float.parseFloat(res.getString(R.string.numbers_radius_multiplier_normal));
         }
         mSelectionRadiusMultiplier =
-                Float.parseFloat(res.getString(R.string.mdtp_selection_radius_multiplier));
+                Float.parseFloat(res.getString(R.string.selection_radius_multiplier));
 
         // Calculate values for the transition mid-way states.
         mAnimationRadiusMultiplier = 1;

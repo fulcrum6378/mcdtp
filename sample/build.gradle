@@ -1,0 +1,27 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'ir.mahdiparastesh.mcdtp.sample'
+    compileSdk Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+    buildToolsVersion '34.0.0 rc4'
+
+    defaultConfig {
+        applicationId 'ir.mahdiparastesh.mcdtp.sample'
+        minSdk Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
+        targetSdk Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures { viewBinding true }
+}
+
+dependencies {
+    implementation 'androidx.activity:activity:1.7.1'
+    //implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}

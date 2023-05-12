@@ -169,15 +169,4 @@ public class McdtpUtils {
                         .getMonths()[calendar.get(Calendar.MONTH)]
                 + " " + calendar.get(Calendar.YEAR);
     }
-
-    public static void shake(Context c, long dur) { // TODO check vibration wanted
-        Vibrator vib;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-            vib = ((VibratorManager) c.getSystemService(Context.VIBRATOR_MANAGER_SERVICE))
-                    .getDefaultVibrator();
-        else vib = (Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            vib.vibrate(VibrationEffect.createOneShot(dur, VibrationEffect.DEFAULT_AMPLITUDE));
-        else vib.vibrate(dur);
-    }
 }

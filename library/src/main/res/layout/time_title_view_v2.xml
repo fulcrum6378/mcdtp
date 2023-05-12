@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/time_picker_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/accent_color_dark"
+    android:gravity="center"
+    android:includeFontPadding="false"
+    android:maxLines="1"
+    android:padding="8dp"
+    android:textAllCaps="@bool/title_all_caps"
+    android:textColor="@color/white"
+    android:textSize="@dimen/time_picker_header_text_size"
+    android:visibility="gone"
+    tools:viewBindingIgnore="true" />

@@ -283,33 +283,33 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
 
         mDefaultLimiter.setController(this);
 
-        int viewRes = mVersion == Version.VERSION_1 ? R.layout.mdtp_date_picker_dialog : R.layout.mdtp_date_picker_dialog_v2;
+        int viewRes = mVersion == Version.VERSION_1 ? R.layout.date_picker_dialog : R.layout.date_picker_dialog_v2;
         View view = inflater.inflate(viewRes, container, false);
         // All options have been set at this point: round the initial selection if necessary
         mCalendar = mDateRangeLimiter.setToNearestDate(mCalendar);
 
-        mDatePickerHeaderView = view.findViewById(R.id.mdtp_date_picker_header);
-        mMonthAndDayView = view.findViewById(R.id.mdtp_date_picker_month_and_day);
+        mDatePickerHeaderView = view.findViewById(R.id.date_picker_header);
+        mMonthAndDayView = view.findViewById(R.id.date_picker_month_and_day);
         mMonthAndDayView.setOnClickListener(this);
-        mSelectedMonthTextView = view.findViewById(R.id.mdtp_date_picker_month);
-        mSelectedDayTextView = view.findViewById(R.id.mdtp_date_picker_day);
-        mYearView = view.findViewById(R.id.mdtp_date_picker_year);
+        mSelectedMonthTextView = view.findViewById(R.id.date_picker_month);
+        mSelectedDayTextView = view.findViewById(R.id.date_picker_day);
+        mYearView = view.findViewById(R.id.date_picker_year);
         mYearView.setOnClickListener(this);
 
         mDayPickerView = new DayPickerGroup<>(activity, this);
         mYearPickerView = new YearPickerView<>(activity, this);
 
         Resources res = getResources();
-        mDayPickerDescription = res.getString(R.string.mdtp_day_picker_description);
-        mSelectDay = res.getString(R.string.mdtp_select_day);
-        mYearPickerDescription = res.getString(R.string.mdtp_year_picker_description);
-        mSelectYear = res.getString(R.string.mdtp_select_year);
+        mDayPickerDescription = res.getString(R.string.day_picker_description);
+        mSelectDay = res.getString(R.string.select_day);
+        mYearPickerDescription = res.getString(R.string.year_picker_description);
+        mSelectYear = res.getString(R.string.select_year);
 
-        int bgColorResource = R.color.mdtp_date_picker_view_animator;
+        int bgColorResource = R.color.date_picker_view_animator;
         int bgColor = ContextCompat.getColor(activity, bgColorResource);
         view.setBackgroundColor(bgColor);
 
-        mAnimator = view.findViewById(R.id.mdtp_animator);
+        mAnimator = view.findViewById(R.id.animator);
         mAnimator.addView(mDayPickerView);
         mAnimator.addView(mYearPickerView);
         mAnimator.setCalendar(mCalendar);
@@ -321,7 +321,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         mAnimator.setOutAnimation(animation2);
 
         Typeface font1 = McdtpUtils.mdtpFont(activity, false);
-        Button okButton = view.findViewById(R.id.mdtp_ok);
+        Button okButton = view.findViewById(R.id.ok);
         okButton.setOnClickListener(v -> {
             tryVibrate();
             notifyOnDateListener();
@@ -330,7 +330,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         okButton.setTypeface(font1);
         okButton.setText(android.R.string.ok);
 
-        Button cancelButton = view.findViewById(R.id.mdtp_cancel);
+        Button cancelButton = view.findViewById(R.id.cancel);
         cancelButton.setOnClickListener(v -> {
             tryVibrate();
             if (getDialog() != null) getDialog().cancel();
@@ -344,7 +344,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             mAccentColor = McdtpUtils.getAccentColorFromThemeIfAvailable(activity);
         if (mDatePickerHeaderView != null)
             mDatePickerHeaderView.setBackgroundColor(McdtpUtils.darkenColor(mAccentColor));
-        view.findViewById(R.id.mdtp_day_picker_selected_date_layout).setBackgroundColor(mAccentColor);
+        view.findViewById(R.id.day_picker_selected_date_layout).setBackgroundColor(mAccentColor);
 
         // Buttons can have a different color
         if (mOkColor == null) mOkColor = mAccentColor;
@@ -354,7 +354,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         cancelButton.setTextColor(mCancelColor);
 
         if (getDialog() == null)
-            view.findViewById(R.id.mdtp_done_background).setVisibility(View.GONE);
+            view.findViewById(R.id.done_background).setVisibility(View.GONE);
 
         updateDisplay(false);
         setCurrentView(currentView);
@@ -723,9 +723,9 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     @Override
     public void onClick(View v) {
         tryVibrate();
-        if (v.getId() == R.id.mdtp_date_picker_year)
+        if (v.getId() == R.id.date_picker_year)
             setCurrentView(YEAR_VIEW);
-        else if (v.getId() == R.id.mdtp_date_picker_month_and_day)
+        else if (v.getId() == R.id.date_picker_month_and_day)
             setCurrentView(MONTH_AND_DAY_VIEW);
     }
 

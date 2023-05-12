@@ -102,39 +102,39 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mDayLabelCalendar = McdtpUtils.createCalendar(mController.getCalendarType(), mController.getTimeZone());
         mCalendar = McdtpUtils.createCalendar(mController.getCalendarType(), mController.getTimeZone());
 
-        mDayTextColor = ContextCompat.getColor(context, R.color.mdtp_date_picker_text_normal);
-        mMonthDayTextColor = ContextCompat.getColor(context, R.color.mdtp_date_picker_month_day);
-        mDisabledDayTextColor = ContextCompat.getColor(context, R.color.mdtp_date_picker_text_disabled);
-        mHighlightedDayTextColor = ContextCompat.getColor(context, R.color.mdtp_date_picker_text_highlighted);
-        mSelectedDayTextColor = ContextCompat.getColor(context, R.color.mdtp_calendar_selected_day_text);
-        mTodayNumberColor = ContextCompat.getColor(context, R.color.mdtp_calendar_today_number);
+        mDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_normal);
+        mMonthDayTextColor = ContextCompat.getColor(context, R.color.date_picker_month_day);
+        mDisabledDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_disabled);
+        mHighlightedDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_highlighted);
+        mSelectedDayTextColor = ContextCompat.getColor(context, R.color.calendar_selected_day_text);
+        mTodayNumberColor = ContextCompat.getColor(context, R.color.calendar_today_number);
 
         mStringBuilder = new StringBuilder(50);
 
-        MINI_DAY_NUMBER_TEXT_SIZE = res.getDimensionPixelSize(R.dimen.mdtp_day_number_size);
-        MONTH_LABEL_TEXT_SIZE = res.getDimensionPixelSize(R.dimen.mdtp_month_label_size);
-        MONTH_DAY_LABEL_TEXT_SIZE = res.getDimensionPixelSize(R.dimen.mdtp_month_day_label_text_size);
-        MONTH_HEADER_SIZE = res.getDimensionPixelOffset(R.dimen.mdtp_month_list_item_header_height);
-        MONTH_HEADER_SIZE_V2 = res.getDimensionPixelOffset(R.dimen.mdtp_month_list_item_header_height_v2);
+        MINI_DAY_NUMBER_TEXT_SIZE = res.getDimensionPixelSize(R.dimen.day_number_size);
+        MONTH_LABEL_TEXT_SIZE = res.getDimensionPixelSize(R.dimen.month_label_size);
+        MONTH_DAY_LABEL_TEXT_SIZE = res.getDimensionPixelSize(R.dimen.month_day_label_text_size);
+        MONTH_HEADER_SIZE = res.getDimensionPixelOffset(R.dimen.month_list_item_header_height);
+        MONTH_HEADER_SIZE_V2 = res.getDimensionPixelOffset(R.dimen.month_list_item_header_height_v2);
         DAY_SELECTED_CIRCLE_SIZE = mController.getVersion() == DatePickerDialog.Version.VERSION_1
-                ? res.getDimensionPixelSize(R.dimen.mdtp_day_number_select_circle_radius)
-                : res.getDimensionPixelSize(R.dimen.mdtp_day_number_select_circle_radius_v2);
+                ? res.getDimensionPixelSize(R.dimen.day_number_select_circle_radius)
+                : res.getDimensionPixelSize(R.dimen.day_number_select_circle_radius_v2);
         DAY_HIGHLIGHT_CIRCLE_SIZE = res
-                .getDimensionPixelSize(R.dimen.mdtp_day_highlight_circle_radius);
+                .getDimensionPixelSize(R.dimen.day_highlight_circle_radius);
         DAY_HIGHLIGHT_CIRCLE_MARGIN = res
-                .getDimensionPixelSize(R.dimen.mdtp_day_highlight_circle_margin);
+                .getDimensionPixelSize(R.dimen.day_highlight_circle_margin);
 
         if (mController.getVersion() == DatePickerDialog.Version.VERSION_1) {
-            mRowHeight = (res.getDimensionPixelOffset(R.dimen.mdtp_date_picker_view_animator_height)
+            mRowHeight = (res.getDimensionPixelOffset(R.dimen.date_picker_view_animator_height)
                     - getMonthHeaderSize()) / MAX_NUM_ROWS;
         } else {
-            mRowHeight = (res.getDimensionPixelOffset(R.dimen.mdtp_date_picker_view_animator_height_v2)
+            mRowHeight = (res.getDimensionPixelOffset(R.dimen.date_picker_view_animator_height_v2)
                     - getMonthHeaderSize() - MONTH_DAY_LABEL_TEXT_SIZE * 2) / MAX_NUM_ROWS;
         }
 
         mEdgePadding = mController.getVersion() == DatePickerDialog.Version.VERSION_1
                 ? 0
-                : context.getResources().getDimensionPixelSize(R.dimen.mdtp_date_picker_view_animator_padding_v2);
+                : context.getResources().getDimensionPixelSize(R.dimen.date_picker_view_animator_padding_v2);
 
         // Set up accessibility components.
         mTouchHelper = getMonthViewTouchHelper();

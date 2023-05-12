@@ -38,7 +38,7 @@ public class CircleView extends View {
 
         Resources res = context.getResources();
 
-        int colorRes = McdtpUtils.night(context) ? R.color.mdtp_circle_background_dark_theme : R.color.mdtp_circle_color;
+        int colorRes = McdtpUtils.night(context) ? R.color.circle_background_dark_theme : R.color.circle_color;
         mCircleColor = ContextCompat.getColor(context, colorRes);
         mDotColor = controller.getAccentColor();
         mPaint.setAntiAlias(true);
@@ -46,12 +46,12 @@ public class CircleView extends View {
         mIs24HourMode = controller.is24HourMode();
         if (mIs24HourMode || controller.getVersion() != TimePickerDialog.Version.VERSION_1) {
             mCircleRadiusMultiplier = Float.parseFloat(
-                    res.getString(R.string.mdtp_circle_radius_multiplier_24HourMode));
+                    res.getString(R.string.circle_radius_multiplier_24HourMode));
         } else {
             mCircleRadiusMultiplier = Float.parseFloat(
-                    res.getString(R.string.mdtp_circle_radius_multiplier));
+                    res.getString(R.string.circle_radius_multiplier));
             mAmPmCircleRadiusMultiplier =
-                    Float.parseFloat(res.getString(R.string.mdtp_ampm_circle_radius_multiplier));
+                    Float.parseFloat(res.getString(R.string.ampm_circle_radius_multiplier));
         }
 
         mIsInitialized = true;

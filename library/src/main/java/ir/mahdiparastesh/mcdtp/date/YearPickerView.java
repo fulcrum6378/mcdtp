@@ -37,9 +37,9 @@ public class YearPickerView<CAL extends Calendar>
         setLayoutParams(frame);
         Resources res = context.getResources();
         mViewSize = mController.getVersion() == DatePickerDialog.Version.VERSION_1
-                ? res.getDimensionPixelOffset(R.dimen.mdtp_date_picker_view_animator_height)
-                : res.getDimensionPixelOffset(R.dimen.mdtp_date_picker_view_animator_height_v2);
-        mChildSize = res.getDimensionPixelOffset(R.dimen.mdtp_year_label_height);
+                ? res.getDimensionPixelOffset(R.dimen.date_picker_view_animator_height)
+                : res.getDimensionPixelOffset(R.dimen.date_picker_view_animator_height_v2);
+        mChildSize = res.getDimensionPixelOffset(R.dimen.year_label_height);
         setVerticalFadingEdgeEnabled(true);
         setFadingEdgeLength(mChildSize / 3);
         init();
@@ -111,7 +111,7 @@ public class YearPickerView<CAL extends Calendar>
                 v = (TextViewWithCircularIndicator) convertView;
             else {
                 v = (TextViewWithCircularIndicator) LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.mdtp_year_label_text_view, parent, false);
+                        .inflate(R.layout.year_label_text_view, parent, false);
                 v.setAccentColor(mController.getAccentColor());
             }
             int year = mMinYear + position;

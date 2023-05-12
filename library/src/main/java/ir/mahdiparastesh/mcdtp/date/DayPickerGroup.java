@@ -48,7 +48,7 @@ public class DayPickerGroup<CAL extends Calendar> extends ViewGroup
         addView(dayPickerView);
 
         final LayoutInflater inflater = LayoutInflater.from(getContext());
-        final ViewGroup content = (ViewGroup) inflater.inflate(R.layout.mdtp_daypicker_group, this, false);
+        final ViewGroup content = (ViewGroup) inflater.inflate(R.layout.daypicker_group, this, false);
 
         // Transfer all children from the content to this
         while (content.getChildCount() > 0) {
@@ -57,8 +57,8 @@ public class DayPickerGroup<CAL extends Calendar> extends ViewGroup
             addView(view);
         }
 
-        prevButton = findViewById(R.id.mdtp_previous_month_arrow);
-        nextButton = findViewById(R.id.mdtp_next_month_arrow);
+        prevButton = findViewById(R.id.previous_month_arrow);
+        nextButton = findViewById(R.id.next_month_arrow);
 
         if (controller.getVersion() == DatePickerDialog.Version.VERSION_1) {
             int size = McdtpUtils.dpToPx(16f, getResources());
@@ -128,7 +128,7 @@ public class DayPickerGroup<CAL extends Calendar> extends ViewGroup
 
         final int topMargin = controller.getVersion() == DatePickerDialog.Version.VERSION_1
                 ? 0
-                : getContext().getResources().getDimensionPixelSize(R.dimen.mdtp_date_picker_view_animator_padding_v2);
+                : getContext().getResources().getDimensionPixelSize(R.dimen.date_picker_view_animator_padding_v2);
         final int width = right - left;
         final int height = bottom - top;
         dayPickerView.layout(0, topMargin, width, height);
