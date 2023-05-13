@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Base.Theme.MultiCalendarDTP" parent="Theme.AppCompat.DayNight">
-    </style>
-
-    <style name="Theme.MultiCalendarDTP" parent="Base.Theme.MultiCalendarDTP" />
+    <style name="Theme.MultiCalendarDTP" parent="Theme.AppCompat.DayNight" />
 </resources>

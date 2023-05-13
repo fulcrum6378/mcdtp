@@ -102,8 +102,9 @@ public class McdtpUtils {
         return Typeface.create("sans-serif", Typeface.NORMAL);
     }
 
-    public static Typeface monthTitleFont(Context c) {
-        return Typeface.create("sans-serif", Typeface.BOLD);
+    public static Typeface monthTitleFont(Context c, @FontRes Integer font) {
+        return font != null ? ResourcesCompat.getFont(c, font)
+                : Typeface.create("sans-serif", Typeface.BOLD);
     }
 
     public static Typeface dayOfWeekFont(Context c) {

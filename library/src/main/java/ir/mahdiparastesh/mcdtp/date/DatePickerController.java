@@ -45,4 +45,6 @@ public interface DatePickerController<CAL extends Calendar> {
     DatePickerDialog.ScrollOrientation getScrollOrientation();
 
     Class<CAL> getCalendarType();
+
+    Integer getFontRes();
 }

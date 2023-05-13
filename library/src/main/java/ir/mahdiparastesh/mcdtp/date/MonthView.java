@@ -52,7 +52,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
 
     protected final DatePickerController<CAL> mController;
 
-    // affects the padding on the sides of this view
+    /** affects the padding on the sides of this view */
     protected final int mEdgePadding;
 
     protected Paint mMonthNumPaint;
@@ -98,15 +98,17 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mController = controller;
         Resources res = context.getResources();
 
-        mDayLabelCalendar = McdtpUtils.createCalendar(mController.getCalendarType(), mController.getTimeZone());
-        mCalendar = McdtpUtils.createCalendar(mController.getCalendarType(), mController.getTimeZone());
+        mDayLabelCalendar = McdtpUtils.createCalendar(
+                mController.getCalendarType(), mController.getTimeZone());
+        mCalendar = McdtpUtils.createCalendar(
+                mController.getCalendarType(), mController.getTimeZone());
 
         mDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_normal);
         mMonthDayTextColor = ContextCompat.getColor(context, R.color.date_picker_month_day);
         mDisabledDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_disabled);
         mHighlightedDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_highlighted);
         mSelectedDayTextColor = ContextCompat.getColor(context, R.color.calendar_selected_day_text);
-        mTodayNumberColor = ContextCompat.getColor(context, R.color.calendar_today_number);
+        mTodayNumberColor = mController.getAccentColor();
 
         mStringBuilder = new StringBuilder(50);
 
@@ -153,9 +155,8 @@ public abstract class MonthView<CAL extends Calendar> extends View {
     public void setAccessibilityDelegate(AccessibilityDelegate delegate) {
         // Workaround for a JB MR1 issue where accessibility delegates on
         // top-level ListView items are overwritten.
-        if (!mLockAccessibilityDelegate) {
+        if (!mLockAccessibilityDelegate)
             super.setAccessibilityDelegate(delegate);
-        }
     }
 
     public void setOnDayClickListener(OnDayClickListener<CAL> listener) {
@@ -187,7 +188,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
             mMonthTitlePaint.setFakeBoldText(true);
         mMonthTitlePaint.setAntiAlias(true);
         mMonthTitlePaint.setTextSize(MONTH_LABEL_TEXT_SIZE);
-        mMonthTitlePaint.setTypeface(McdtpUtils.monthTitleFont(getContext()));
+        mMonthTitlePaint.setTypeface(McdtpUtils.monthTitleFont(getContext(), mController.getFontRes()));
         mMonthTitlePaint.setColor(mDayTextColor);
         mMonthTitlePaint.setTextAlign(Align.CENTER);
         mMonthTitlePaint.setStyle(Style.FILL);

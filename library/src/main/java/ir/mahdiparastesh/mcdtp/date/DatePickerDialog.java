@@ -286,7 +286,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
 
         mDefaultLimiter.setController(this);
 
-        int viewRes = mVersion == Version.VERSION_1 ? R.layout.date_picker_dialog : R.layout.date_picker_dialog_v2;
+        int viewRes = mVersion == Version.VERSION_1
+                ? R.layout.date_picker_dialog : R.layout.date_picker_dialog_v2;
         View view = inflater.inflate(viewRes, container, false);
         // All options have been set at this point: round the initial selection if necessary
         mCalendar = mDateRangeLimiter.setToNearestDate(mCalendar);
@@ -650,6 +651,15 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         return mVersion;
     }
 
+    @Override
+    public Class<CAL> getCalendarType() {
+        return (Class<CAL>) mCalendarType;
+    }
+
+    public Integer getFontRes() {
+        return mFontRes;
+    }
+
     @SuppressWarnings("unused")
     public void setScrollOrientation(ScrollOrientation orientation) {
         mScrollOrientation = orientation;
@@ -812,10 +822,5 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         if (mCallBack != null)
             mCallBack.onDateSet(DatePickerDialog.this, mCalendar.get(Calendar.YEAR),
                     mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));
-    }
-
-    @Override
-    public Class<CAL> getCalendarType() {
-        return (Class<CAL>) mCalendarType;
     }
 }

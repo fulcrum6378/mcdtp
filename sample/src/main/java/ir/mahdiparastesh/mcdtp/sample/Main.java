@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -94,15 +95,15 @@ public class Main extends FragmentActivity {
                 throw new RuntimeException(e);
             }
 
-            DatePickerDialog<?> picker = DatePickerDialog.newInstance((dialog, y, m, d) -> {
-            }, cal);
+            DatePickerDialog<?> picker = DatePickerDialog.newInstance((dialog, y, m, d) ->
+                    Toast.makeText(this, y + "/" + m + "/" + d, Toast.LENGTH_LONG).show(), cal);
             picker.setVersion(chosenDVer);
             picker.show(getSupportFragmentManager(), "test_date");
         });
 
         b.timePicker.setOnClickListener(v -> {
-            TimePickerDialog picker = TimePickerDialog.newInstance((dialog, h, m, s) -> {
-            });
+            TimePickerDialog picker = TimePickerDialog.newInstance((dialog, h, m, s) ->
+                    Toast.makeText(this, h + ":" + m + ":" + s, Toast.LENGTH_LONG).show());
             picker.setVersion(chosenTVer);
             picker.show(getSupportFragmentManager(), "test_time");
         });

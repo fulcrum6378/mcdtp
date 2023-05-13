@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><!--TODO CUSTOMISE-->
-    <color name="CP">#FFD422</color>
-    <color name="CPD">#D6AD00</color>
-    <color name="CPDD">#9A7C00</color>
-    <color name="CPDDD">#6F5900</color>
-    <color name="CP_LIGHT">#FFD422</color>
-
+<resources>
     <color name="white">#fff</color>
     <color name="background_color">@color/white</color>
     <color name="circle_background">@color/background_color</color>
@@ -14,17 +8,16 @@
     <color name="ampm_text_color">@color/numbers_text_color</color>
     <color name="numbers_text_color">#212121</color>
     <color name="translucent_black">#7f000000</color>
-    <color name="accent_color">@color/CP</color>
+    <color name="accent_color">#48D587</color>
     <color name="accent_color_focused">#76ffffff</color>
-    <color name="accent_color_dark">@color/CPD</color>
+    <color name="accent_color_dark">#004903</color>
     <color name="date_picker_text_normal">#212121</color>
     <color name="date_picker_text_highlighted">@color/date_picker_text_normal</color>
     <color name="date_picker_text_disabled">#CCC</color>
     <color name="date_picker_month_day">#767676</color>
     <color name="calendar_header">@color/accent_color_dark</color>
     <color name="date_picker_view_animator">@android:color/white</color>
-    <color name="calendar_today_number">@color/CPDD</color>
     <color name="calendar_selected_day_text">@color/white</color>
-    <color name="button_color">@color/CPDD</color>
+    <color name="button_color">@color/accent_color</color>
     <color name="light_gray">#424242</color>
 </resources>

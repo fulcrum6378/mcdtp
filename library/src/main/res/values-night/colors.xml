@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="CP">#3A3A3A</color>
-
     <color name="accent_color_dark">#444</color>
     <color name="date_picker_view_animator">@color/light_gray</color>
     <color name="date_picker_text_normal">@color/white</color>
     <color name="date_picker_month_day">#b4b4b4</color>
     <color name="date_picker_text_disabled">#767676</color>
     <color name="date_picker_text_highlighted">@color/date_picker_text_normal</color>
-    <color name="calendar_today_number">@color/CP_LIGHT</color>
-    <color name="calendar_selected_day_text">@color/CPDDD</color>
+    <color name="calendar_selected_day_text">@color/accent_color</color>
 </resources>
