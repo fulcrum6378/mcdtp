@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+    <string name="done_label" msgid="7007948707597430919">"Feito"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"Control de desprazamento circular das horas"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Control de desprazamento circular dos minutos"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Seleccionar horas"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Seleccionar minutos"</string>
+    <string name="day_picker_description" msgid="3968620852217927702">"Grade mensual de días"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Lista de anos"</string>
+    <string name="select_day" msgid="3973338219107019769">"Seleccionar mes e día"</string>
+    <string name="select_year" msgid="2603330600102539372">"Seleccionar ano"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"Seleccionouse %1$s"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"Eliminouse %1$s"</string>
+    <string name="date_v1_monthyear">MMMM yyyy</string>
+    <string name="date_v2_daymonthyear">EEE dd MMM</string>
+</resources>

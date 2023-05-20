@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="hour_picker_description">Ure se sirkelglyer</string>
+    <string name="minute_picker_description">Minute se sirkelglyer</string>
+    <string name="second_picker_description">Sekondes sirkelvormige skuifbalk</string>
+    <string name="select_hours">Kies ure</string>
+    <string name="select_minutes" msgid="8327182090226828481">Kies minute</string>
+    <string name="day_picker_description" msgid="3968620852217927702">"Maandrooster van dae"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Jaarlys"</string>
+    <string name="select_day" msgid="3973338219107019769">"Kies maand en dag"</string>
+    <string name="select_year" msgid="2603330600102539372">"Kies jaar"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">%s gekies</string>
+    <string name="deleted_key">%s uitgevee</string>
+</resources>

@@ -656,8 +656,14 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         return (Class<CAL>) mCalendarType;
     }
 
+    @SuppressWarnings("unused")
     public Integer getFontRes() {
         return mFontRes;
+    }
+
+    @SuppressWarnings("unused")
+    public void setFontRes(@FontRes int fontRes) {
+        mFontRes = fontRes;
     }
 
     @SuppressWarnings("unused")

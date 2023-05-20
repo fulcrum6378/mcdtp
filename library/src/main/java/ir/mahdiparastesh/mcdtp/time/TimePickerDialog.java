@@ -410,6 +410,16 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         mLocale = locale;
     }
 
+    @SuppressWarnings("unused")
+    public Integer getFontRes() {
+        return mFontRes;
+    }
+
+    @SuppressWarnings("unused")
+    public void setFontRes(@FontRes int fontRes) {
+        mFontRes = fontRes;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

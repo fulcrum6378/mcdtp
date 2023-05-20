@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+    <string name="done_label" msgid="7007948707597430919">"పూర్తయింది"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"గంటల వృత్తాకార స్లయిడర్"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"నిమిషాల వృత్తాకార స్లయిడర్"</string>
+    <string name="select_hours" msgid="7651068754188418859">"గంటలను ఎంచుకోండి"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"నిమిషాలను ఎంచుకోండి"</string>
+    <string name="day_picker_description" msgid="3968620852217927702">"రోజుల యొక్క నెల గ్రిడ్"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"సంవత్సర జాబితా"</string>
+    <string name="select_day" msgid="3973338219107019769">"నెల మరియు రోజును ఎంచుకోండి"</string>
+    <string name="select_year" msgid="2603330600102539372">"సంవత్సరాన్ని ఎంచుకోండి"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"%1$s ఎంచుకోబడింది"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"%1$s తొలగించబడింది"</string>
+    <string name="date_v1_monthyear">MMMM yyyy</string>
+    <string name="date_v2_daymonthyear">EEE, dd MMM</string>
+</resources>

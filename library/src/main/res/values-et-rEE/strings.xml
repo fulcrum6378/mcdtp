@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+    <string name="done_label" msgid="7007948707597430919">"Valmis"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"Ringikujuline tunniliugur"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"Ringikujuline minutiliugur"</string>
+    <string name="select_hours" msgid="7651068754188418859">"Tundide valimine"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"Minutite valimine"</string>
+    <string name="day_picker_description" msgid="3968620852217927702">"Päevad kuu ruudustikus"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"Aastate loend"</string>
+    <string name="select_day" msgid="3973338219107019769">"Valige kuu ja päev"</string>
+    <string name="select_year" msgid="2603330600102539372">"Valige aasta"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"%1$s on valitud"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"%1$s on kustutatud"</string>
+    <string name="cancel"></string>
+    <string name="date_v1_monthyear">MMMM yyyy</string>
+    <string name="date_v2_daymonthyear">EEE, dd. MMM</string>
+</resources>

@@ -89,12 +89,12 @@ dpd.setVersion(DatePickerDialog.Version.VERSION_2);
 
 The pickers will be themed automatically based on the current theme where they are created, based on the
 current `colorAccent`. You can also theme the dialogs via the `setAccentColor(int color)` method. Alternatively, you can
-theme the pickers by overwriting the color resources `mdtp_accent_color` and `mdtp_accent_color_dark` in your project.
+theme the pickers by overwriting the color resources `accent_color` and `accent_color_dark` in your project.
 
 ```xml
 
-<color name="mdtp_accent_color">#009688</color>
-<color name="mdtp_accent_color_dark">#00796b</color>
+<color name="accent_color">#009688</color>
+<color name="accent_color_dark">#00796b</color>
 ```
 
 The exact order in which colors are selected is as follows:
@@ -102,14 +102,14 @@ The exact order in which colors are selected is as follows:
 1. `setAccentColor(int color)` in java code
 2. `android.R.attr.colorAccent` (if android 5.0+)
 3. `R.attr.colorAccent` (eg. when using AppCompat)
-4. `R.color.mdtp_accent_color` and `R.color.mdtp_accent_color_dark` if none of the others are set in your project
+4. `R.color.accent_color` and `R.color.accent_color_dark` if none of the others are set in your project
 
-The pickers also have a dark theme. This can be specified globablly using the `mdtp_theme_dark` attribute in your theme
+The pickers also have a dark theme. This can be specified globablly using the `theme_dark` attribute in your theme
 or the `setThemeDark(boolean themeDark)` functions. The function calls overwrite the XML setting.
 
 ```xml
 
-<item name="mdtp_theme_dark">true</item>
+<item name="theme_dark">true</item>
 ```
 
 ## Additional Options
@@ -199,7 +199,7 @@ precedence over `setSelectableDays(Calendar[] days)`
 ### [DatePickerDialog] `setHighlightedDays(Calendar[] days)`
 
 You can pass a `Calendar[]` of days to highlight. They will be rendered in bold. You can tweak the color of the
-highlighted days by overwriting `mdtp_date_picker_text_highlighted`
+highlighted days by overwriting `date_picker_text_highlighted`
 
 ### [DatePickerDialog] `showYearPickerFirst(boolean yearPicker)`
 
@@ -405,7 +405,7 @@ There are a few workarounds:
 * Overwrite the style of the mdtp buttons with one that inherits from Material Components text buttons, as
   described [here](https://github.com/wdullaer/MaterialDateTimePicker/issues/523#issuecomment-477349333):
     ```xml
-    <style name="mdtp_ActionButton.Text" parent="Widget.MaterialComponents.Button.TextButton.Dialog"/>
+    <style name="ActionButton.Text" parent="Widget.MaterialComponents.Button.TextButton.Dialog"/>
     ```
 * Overwrite the View inflater again in your application theme by adding the following statement in your application
   theme:

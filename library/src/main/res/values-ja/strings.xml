@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+    <string name="done_label" msgid="7007948707597430919">"完了"</string>
+    <string name="hour_picker_description" msgid="7586639618712934060">"円形スライダー（時）"</string>
+    <string name="minute_picker_description" msgid="6024811202872705251">"円形スライダー（分）"</string>
+    <string name="select_hours" msgid="7651068754188418859">"時間を選択"</string>
+    <string name="select_minutes" msgid="8327182090226828481">"分を選択"</string>
+    <string name="day_picker_description" msgid="3968620852217927702">"日グリッド（月別）"</string>
+    <string name="year_picker_description" msgid="6963340404644587098">"年リスト"</string>
+    <string name="select_day" msgid="3973338219107019769">"月と日を選択"</string>
+    <string name="select_year" msgid="2603330600102539372">"年を選択"</string>
+    <string name="item_is_selected" msgid="2674929164900463786">"%1$sを選択しました"</string>
+    <string name="deleted_key" msgid="6908431551612331381">"%1$sを削除しました"</string>
+    <string name="date_v1_monthyear">yyyy年M月</string>
+    <string name="date_v2_daymonthyear">M月dd日(EEE)</string>
+</resources>
