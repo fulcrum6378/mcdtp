@@ -188,7 +188,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
             mMonthTitlePaint.setFakeBoldText(true);
         mMonthTitlePaint.setAntiAlias(true);
         mMonthTitlePaint.setTextSize(MONTH_LABEL_TEXT_SIZE);
-        mMonthTitlePaint.setTypeface(McdtpUtils.monthTitleFont(getContext(), mController.getFontRes()));
+        mMonthTitlePaint.setTypeface(McdtpUtils.boldFont(getContext(), mController.getBoldFont()));
         mMonthTitlePaint.setColor(mDayTextColor);
         mMonthTitlePaint.setTextAlign(Align.CENTER);
         mMonthTitlePaint.setStyle(Style.FILL);

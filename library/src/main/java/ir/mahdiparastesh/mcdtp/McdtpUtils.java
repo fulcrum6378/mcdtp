@@ -90,21 +90,17 @@ public class McdtpUtils {
         return calendar;
     }
 
-    public static Typeface buttonFont(Context c, @FontRes Integer font) {
+    public static Typeface boldFont(Context c, @FontRes Integer font) {
+        return font != null ? ResourcesCompat.getFont(c, font)
+                : Typeface.create("sans-serif", Typeface.BOLD);
+    }
+
+    public static Typeface normalFont(Context c, @FontRes Integer font) {
         return font != null ? ResourcesCompat.getFont(c, font) : Typeface.SANS_SERIF;
     }
 
-    public static Typeface amPmFont(Context c) {
-        return Typeface.create("sans-serif", Typeface.NORMAL);
-    }
-
-    public static Typeface timeCircleFont(Context c, boolean innerCircleIn24HM) {
-        return Typeface.create("sans-serif", Typeface.NORMAL);
-    }
-
-    public static Typeface monthTitleFont(Context c, @FontRes Integer font) {
-        return font != null ? ResourcesCompat.getFont(c, font)
-                : Typeface.create("sans-serif", Typeface.BOLD);
+    public static Typeface lightFont(Context c, @FontRes Integer font) {
+        return font != null ? ResourcesCompat.getFont(c, font) : Typeface.SANS_SERIF;
     }
 
     public static Typeface dayOfWeekFont(Context c) {

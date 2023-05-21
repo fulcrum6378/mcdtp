@@ -26,6 +26,7 @@ public class Main extends FragmentActivity {
     String chosenCal;
     DatePickerDialog.Version chosenDVer;
     TimePickerDialog.Version chosenTVer;
+    boolean is24HourMode;
 
     public Main() {
         addCal("Gregorian", GregorianCalendar.class);
@@ -44,6 +45,7 @@ public class Main extends FragmentActivity {
         b = MainBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
+        // Calendar Type
         ArrayAdapter<String> calAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,
                 calIndex);
@@ -61,6 +63,7 @@ public class Main extends FragmentActivity {
         });
         b.calendar.setSelection(0);
 
+        // Version
         ArrayAdapter<String> verAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_item,
                 new String[]{"Version 1", "Version 2"});
@@ -85,8 +88,14 @@ public class Main extends FragmentActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-        b.version.setSelection(0);
+        b.version.setSelection(1);
 
+        // 24 Hour Mode
+        b.is24HourMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            is24HourMode = isChecked;
+        });
+
+        // Date Picker
         b.datePicker.setOnClickListener(v -> {
             Calendar cal;
             try {
@@ -98,13 +107,19 @@ public class Main extends FragmentActivity {
             DatePickerDialog<?> picker = DatePickerDialog.newInstance((dialog, y, m, d) ->
                     Toast.makeText(this, y + "/" + m + "/" + d, Toast.LENGTH_LONG).show(), cal);
             picker.setVersion(chosenDVer);
+            picker.setBoldFont(R.font.bold);
+            picker.setNormalFont(R.font.normal);
             picker.show(getSupportFragmentManager(), "test_date");
         });
 
+        // Time Picker
         b.timePicker.setOnClickListener(v -> {
             TimePickerDialog picker = TimePickerDialog.newInstance((dialog, h, m, s) ->
                     Toast.makeText(this, h + ":" + m + ":" + s, Toast.LENGTH_LONG).show());
             picker.setVersion(chosenTVer);
+            picker.setBoldFont(R.font.bold);
+            picker.setNormalFont(R.font.normal);
+            picker.set24HourMode(is24HourMode);
             picker.show(getSupportFragmentManager(), "test_time");
         });
     }

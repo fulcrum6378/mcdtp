@@ -71,7 +71,7 @@ public class AmPmCirclesView extends View {
         mTouchedColor = McdtpUtils.darkenColor(mSelectedColor);
         mAmPmSelectedTextColor = ContextCompat.getColor(context, R.color.white);
 
-        mPaint.setTypeface(McdtpUtils.amPmFont(context));
+        mPaint.setTypeface(McdtpUtils.normalFont(context, controller.getNormalFont()));
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 
@@ -100,9 +100,7 @@ public class AmPmCirclesView extends View {
         mAmOrPmPressed = amOrPmPressed;
     }
 
-    /**
-     * Calculate whether the coordinates are touching the AM or PM circle.
-     */
+    /** Calculate whether the coordinates are touching the AM or PM circle. */
     public int getIsTouchingAmOrPm(float xCoord, float yCoord) {
         if (!mDrawValuesReady) {
             return -1;
@@ -118,9 +116,8 @@ public class AmPmCirclesView extends View {
 
         int distanceToPmCenter =
                 (int) Math.sqrt((xCoord - mPmXCenter) * (xCoord - mPmXCenter) + squaredYDistance);
-        if (distanceToPmCenter <= mAmPmCircleRadius && !mPmDisabled) {
+        if (distanceToPmCenter <= mAmPmCircleRadius && !mPmDisabled)
             return PM;
-        }
 
         // Neither was close enough.
         return -1;

@@ -67,16 +67,17 @@ public class RadialTextsView extends View {
         mIsInitialized = false;
     }
 
-    public void initialize(Context context, String[] texts, String[] innerTexts,
-                           TimePickerController controller, SelectionValidator validator, boolean disappearsOut) {
+    public void initialize(
+            Context context, String[] texts, String[] innerTexts, TimePickerController controller,
+            SelectionValidator validator, boolean disappearsOut) {
         if (mIsInitialized) return;
         Resources res = context.getResources();
 
         // Set up the paint.
         int textColorRes = McdtpUtils.night(context) ? R.color.white : R.color.numbers_text_color;
         mPaint.setColor(ContextCompat.getColor(context, textColorRes));
-        mTypefaceLight = McdtpUtils.timeCircleFont(context, false);
-        mTypefaceRegular = McdtpUtils.timeCircleFont(context, true);
+        mTypefaceLight = McdtpUtils.lightFont(context, controller.getLightFont());
+        mTypefaceRegular = McdtpUtils.lightFont(context, controller.getNormalFont());
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 

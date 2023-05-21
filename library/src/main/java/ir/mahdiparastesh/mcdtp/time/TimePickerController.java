@@ -17,4 +17,10 @@ interface TimePickerController {
     boolean isPmDisabled();
 
     Timepoint roundToNearest(Timepoint time, Timepoint.TYPE type);
+
+    Integer getBoldFont();
+
+    Integer getNormalFont();
+
+    Integer getLightFont();
 }

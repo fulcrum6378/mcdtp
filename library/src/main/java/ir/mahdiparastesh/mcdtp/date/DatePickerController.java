@@ -46,5 +46,9 @@ public interface DatePickerController<CAL extends Calendar> {
 
     Class<CAL> getCalendarType();
 
-    Integer getFontRes();
+    Integer getBoldFont();
+
+    Integer getNormalFont();
+
+    Integer getLightFont();
 }

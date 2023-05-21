@@ -74,7 +74,9 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private static final String KEY_SCROLL_ORIENTATION = "scrollorientation";
     private static final String KEY_LOCALE = "locale";
     private static final String KEY_CALENDAR_TYPE = "calendar_type";
-    private static final String KEY_FONT_RES = "font_resource";
+    private static final String KEY_BOLD_FONT_RES = "font_bold_resource";
+    private static final String KEY_NORMAL_FONT_RES = "font_normal_resource";
+    private static final String KEY_LIGHT_FONT_RES = "font_light_resource";
 
     private static final int ANIMATION_DURATION = 300;
     private static final int ANIMATION_DELAY = 500;
@@ -120,7 +122,11 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private DefaultDateRangeLimiter<CAL> mDefaultLimiter;
     private DateRangeLimiter<CAL> mDateRangeLimiter;
     @FontRes
-    private Integer mFontRes = null;
+    private Integer mBoldFontRes = null;
+    @FontRes
+    private Integer mNormalFontRes = null;
+    @FontRes
+    private Integer mLightFontRes = null;
 
     private boolean mDelayAnimation = true;
 
@@ -241,7 +247,9 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         outState.putSerializable(KEY_VERSION, mVersion);
         outState.putSerializable(KEY_SCROLL_ORIENTATION, mScrollOrientation);
         outState.putParcelable(KEY_DATERANGELIMITER, mDateRangeLimiter);
-        outState.putInt(KEY_FONT_RES, mFontRes);
+        outState.putInt(KEY_BOLD_FONT_RES, mBoldFontRes);
+        outState.putInt(KEY_NORMAL_FONT_RES, mNormalFontRes);
+        outState.putInt(KEY_LIGHT_FONT_RES, mLightFontRes);
         outState.putSerializable(KEY_LOCALE, mLocale);
         outState.putSerializable(KEY_TIMEZONE, mTimezone);
     }
@@ -274,9 +282,12 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             if (savedInstanceState.containsKey(KEY_CANCEL_COLOR))
                 mCancelColor = savedInstanceState.getInt(KEY_CANCEL_COLOR);
             mVersion = (Version) savedInstanceState.getSerializable(KEY_VERSION);
-            mScrollOrientation = (ScrollOrientation) savedInstanceState.getSerializable(KEY_SCROLL_ORIENTATION);
+            mScrollOrientation = (ScrollOrientation)
+                    savedInstanceState.getSerializable(KEY_SCROLL_ORIENTATION);
             mDateRangeLimiter = savedInstanceState.getParcelable(KEY_DATERANGELIMITER);
-            mFontRes = savedInstanceState.getInt(KEY_FONT_RES);
+            mBoldFontRes = savedInstanceState.getInt(KEY_BOLD_FONT_RES);
+            mNormalFontRes = savedInstanceState.getInt(KEY_NORMAL_FONT_RES);
+            mLightFontRes = savedInstanceState.getInt(KEY_LIGHT_FONT_RES);
 
             setLocale((Locale) savedInstanceState.getSerializable(KEY_LOCALE));
             if (mDateRangeLimiter instanceof DefaultDateRangeLimiter)
@@ -309,6 +320,13 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         mYearPickerDescription = res.getString(R.string.year_picker_description);
         mSelectYear = res.getString(R.string.select_year);
 
+        Typeface normalFont = McdtpUtils.normalFont(activity, mNormalFontRes);
+        Typeface boldFont = McdtpUtils.boldFont(activity, mBoldFontRes);
+        if (mDatePickerHeaderView != null) mDatePickerHeaderView.setTypeface(normalFont);
+        if (mSelectedMonthTextView != null) mSelectedMonthTextView.setTypeface(boldFont);
+        mSelectedDayTextView.setTypeface(boldFont);
+        mYearView.setTypeface(mVersion == Version.VERSION_1 ? boldFont : normalFont);
+
         int bgColorResource = R.color.date_picker_view_animator;
         int bgColor = ContextCompat.getColor(activity, bgColorResource);
         view.setBackgroundColor(bgColor);
@@ -324,14 +342,13 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         animation2.setDuration(ANIMATION_DURATION);
         mAnimator.setOutAnimation(animation2);
 
-        Typeface buttonFont = McdtpUtils.buttonFont(activity, mFontRes);
         Button okButton = view.findViewById(R.id.ok);
         okButton.setOnClickListener(v -> {
             tryVibrate();
             notifyOnDateListener();
             dismiss();
         });
-        okButton.setTypeface(buttonFont);
+        okButton.setTypeface(boldFont);
         okButton.setText(android.R.string.ok);
 
         Button cancelButton = view.findViewById(R.id.cancel);
@@ -339,7 +356,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             tryVibrate();
             if (getDialog() != null) getDialog().cancel();
         });
-        cancelButton.setTypeface(buttonFont);
+        cancelButton.setTypeface(boldFont);
         cancelButton.setText(android.R.string.cancel);
         cancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
 
@@ -379,7 +396,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         ViewGroup viewGroup = (ViewGroup) getView();
         if (viewGroup != null) {
             viewGroup.removeAllViewsInLayout();
-            View view = onCreateView(requireActivity().getLayoutInflater(), viewGroup, null);
+            View view = onCreateView(
+                    requireActivity().getLayoutInflater(), viewGroup, null);
             viewGroup.addView(view);
         }
     }
@@ -406,8 +424,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         switch (viewIndex) {
             case MONTH_AND_DAY_VIEW -> {
                 if (mVersion == Version.VERSION_1) {
-                    ObjectAnimator pulseAnimator =
-                            McdtpUtils.getPulseAnimator(mMonthAndDayView, 0.9f, 1.05f);
+                    ObjectAnimator pulseAnimator = McdtpUtils.getPulseAnimator(
+                            mMonthAndDayView, 0.9f, 1.05f);
                     if (mDelayAnimation) {
                         pulseAnimator.setStartDelay(ANIMATION_DELAY);
                         mDelayAnimation = false;
@@ -437,7 +455,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             }
             case YEAR_VIEW -> {
                 if (mVersion == Version.VERSION_1) {
-                    ObjectAnimator pulseAnimator = McdtpUtils.getPulseAnimator(mYearView, 0.85f, 1.1f);
+                    ObjectAnimator pulseAnimator =
+                            McdtpUtils.getPulseAnimator(mYearView, 0.85f, 1.1f);
                     if (mDelayAnimation) {
                         pulseAnimator.setStartDelay(ANIMATION_DELAY);
                         mDelayAnimation = false;
@@ -657,13 +676,36 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     }
 
     @SuppressWarnings("unused")
-    public Integer getFontRes() {
-        return mFontRes;
+    @Override
+    public Integer getBoldFont() {
+        return mBoldFontRes;
     }
 
     @SuppressWarnings("unused")
-    public void setFontRes(@FontRes int fontRes) {
-        mFontRes = fontRes;
+    public void setBoldFont(@FontRes int fontRes) {
+        mBoldFontRes = fontRes;
+    }
+
+    @SuppressWarnings("unused")
+    @Override
+    public Integer getNormalFont() {
+        return mNormalFontRes;
+    }
+
+    @SuppressWarnings("unused")
+    public void setNormalFont(@FontRes int fontRes) {
+        mNormalFontRes = fontRes;
+    }
+
+    @SuppressWarnings("unused")
+    @Override
+    public Integer getLightFont() {
+        return mLightFontRes;
+    }
+
+    @SuppressWarnings("unused")
+    public void setLightFont(@FontRes int fontRes) {
+        mLightFontRes = fontRes;
     }
 
     @SuppressWarnings("unused")
@@ -704,13 +746,15 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     }
 
     @SuppressWarnings("unused")
-    public DatePickerDialog<CAL> setOnCancelListener(DialogInterface.OnCancelListener onCancelListener) {
+    public DatePickerDialog<CAL> setOnCancelListener(
+            DialogInterface.OnCancelListener onCancelListener) {
         mOnCancelListener = onCancelListener;
         return this;
     }
 
     @SuppressWarnings("unused")
-    public DatePickerDialog<CAL> setOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
+    public DatePickerDialog<CAL> setOnDismissListener(
+            DialogInterface.OnDismissListener onDismissListener) {
         mOnDismissListener = onDismissListener;
         return this;
     }
