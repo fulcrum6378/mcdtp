@@ -21,8 +21,6 @@ public abstract class MonthAdapter<CAL extends Calendar>
 
     private CalendarDay<CAL> mSelectedDay;
 
-    protected static final int MONTHS_IN_YEAR = 12;
-
     public static class CalendarDay<CAL extends Calendar> {
         private Class<CAL> mCalendarType;
         private CAL calendar;
@@ -148,8 +146,10 @@ public abstract class MonthAdapter<CAL extends Calendar>
     public int getItemCount() {
         CAL endDate = mController.getEndDate();
         CAL startDate = mController.getStartDate();
-        int endMonth = endDate.get(Calendar.YEAR) * MONTHS_IN_YEAR + endDate.get(Calendar.MONTH);
-        int startMonth = startDate.get(Calendar.YEAR) * MONTHS_IN_YEAR + startDate.get(Calendar.MONTH);
+        int endMonth = endDate.get(Calendar.YEAR) * endDate.getActualMaximum(Calendar.MONTH)
+                + endDate.get(Calendar.MONTH);
+        int startMonth = startDate.get(Calendar.YEAR) * startDate.getActualMaximum(Calendar.MONTH)
+                + startDate.get(Calendar.MONTH);
         return endMonth - startMonth + 1;
     }
 
@@ -176,9 +176,10 @@ public abstract class MonthAdapter<CAL extends Calendar>
         void bind(int position, DatePickerController<CAL> mController,
                   CalendarDay<CAL> selectedCalendarDay) {
             final int month = (position + mController.getStartDate().get(Calendar.MONTH))
-                    % MONTHS_IN_YEAR;
+                    % mController.getStartDate().getActualMaximum(Calendar.MONTH);
             final int year = (position + mController.getStartDate().get(Calendar.MONTH))
-                    / MONTHS_IN_YEAR + mController.getMinYear();
+                    / mController.getStartDate().getActualMaximum(Calendar.MONTH)
+                    + mController.getMinYear();
 
             int selectedDay = -1;
             if (isSelectedDayInMonth(selectedCalendarDay, year, month))

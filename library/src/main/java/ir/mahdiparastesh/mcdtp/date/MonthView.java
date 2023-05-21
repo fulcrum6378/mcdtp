@@ -332,13 +332,9 @@ public abstract class MonthView<CAL extends Calendar> extends View {
 
     @NonNull
     private String getMonthAndYearString() {
-        Locale locale = mController.getLocale();
-        String pattern = DateFormat.getBestDateTimePattern(locale, "MMMM yyyy");
-
-        LocalDateFormat formatter = new LocalDateFormat(
-                getContext(), mController.getCalendarType(), pattern, locale);
+        LocalDateFormat formatter = new LocalDateFormat(getContext(),
+                mController.getCalendarType(), "MMMM yyyy", mController.getLocale());
         formatter.setTimeZone(mController.getTimeZone());
-        formatter.applyLocalizedPattern(pattern);
         mStringBuilder.setLength(0);
         return formatter.format(mCalendar);
     }

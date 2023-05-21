@@ -14,4 +14,34 @@
     <string name="deleted_key">%s को हटा दिया गया</string>
     <string name="next_month_arrow_description">अगले महीने</string>
     <string name="previous_month_arrow_description">पिछला महीना</string>
+
+    <!-- Calendars -->
+    <string-array name="indianMonths">
+        <item>चैत्र</item>
+        <item>वैशाख</item>
+        <item>ज्येष्ठ</item>
+        <item>आषाढ़</item>
+        <item>श्रावण</item>
+        <item>भाद्रपद</item>
+        <item>आश्विन</item>
+        <item>कार्तिक</item>
+        <item>अग्रहायण</item>
+        <item>पौष</item>
+        <item>माघ</item>
+        <item>फाल्गुन</item>
+    </string-array>
+    <string-array name="shortIndianMonths">
+        <item>चैत्र</item>
+        <item>वैशाख</item>
+        <item>ज्येष्ठ</item>
+        <item>आषाढ़</item>
+        <item>श्रावण</item>
+        <item>भाद्रपद</item>
+        <item>आश्विन</item>
+        <item>कार्तिक</item>
+        <item>अग्रहायण</item>
+        <item>पौष</item>
+        <item>माघ</item>
+        <item>फाल्गुन</item>
+    </string-array>
 </resources>

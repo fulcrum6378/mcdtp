@@ -35,7 +35,8 @@ public class SimpleMonthView<CAL extends Calendar> extends MonthView<CAL> {
         } else if (mHasToday && mToday == day) {
             mMonthNumPaint.setColor(mTodayNumberColor);
         } else {
-            mMonthNumPaint.setColor(isHighlighted(year, month, day) ? mHighlightedDayTextColor : mDayTextColor);
+            mMonthNumPaint.setColor(isHighlighted(year, month, day)
+                    ? mHighlightedDayTextColor : mDayTextColor);
         }
 
         canvas.drawText(String.format(mController.getLocale(), "%d", day), x, y, mMonthNumPaint);

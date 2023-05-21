@@ -40,7 +40,8 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
 
     public DayPickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        DatePickerDialog.ScrollOrientation scrollOrientation = DatePickerDialog.ScrollOrientation.HORIZONTAL;
+        DatePickerDialog.ScrollOrientation scrollOrientation =
+                DatePickerDialog.ScrollOrientation.HORIZONTAL;
         init(context, scrollOrientation);
     }
 
@@ -139,7 +140,7 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
         mTempDay.set(day);
         int minMonth = mController.getStartDate().get(Calendar.MONTH);
         final int position = (day.year - mController.getMinYear())
-                * MonthAdapter.MONTHS_IN_YEAR + day.month - minMonth;
+                * mController.getStartDate().getActualMaximum(Calendar.MONTH) + day.month - minMonth;
 
         View child;
         int i = 0;
@@ -183,7 +184,8 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
 
     public @Nullable
     MonthView<CAL> getMostVisibleMonth() {
-        boolean verticalScroll = mController.getScrollOrientation() == DatePickerDialog.ScrollOrientation.VERTICAL;
+        boolean verticalScroll =
+                mController.getScrollOrientation() == DatePickerDialog.ScrollOrientation.VERTICAL;
         final int maxSize = verticalScroll ? getHeight() : getWidth();
         int maxDisplayedSize = 0;
         int i = 0;
@@ -216,7 +218,8 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
      */
     @Override
     public void onDateChanged() {
-        goTo(mController.getSelectedDay(), false, true, true);
+        goTo(mController.getSelectedDay(),
+                false, true, true);
     }
 
     /**
@@ -227,7 +230,8 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
         for (int i = 0; i < childCount; i++) {
             final View child = getChildAt(i);
             if (child instanceof MonthView) {
-                final MonthAdapter.CalendarDay<CAL> focus = ((MonthView<CAL>) child).getAccessibilityFocus();
+                final MonthAdapter.CalendarDay<CAL> focus =
+                        ((MonthView<CAL>) child).getAccessibilityFocus();
                 if (focus != null) return focus;
             }
         }
@@ -274,13 +278,6 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
         CAL calendar = McdtpUtils.createCalendar(calendarType);
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.YEAR, year);
-        try {
-            LocalDateFormat ldf = new LocalDateFormat(c, calendarType, "MMMM yyyy", locale);
-            String cx = ldf.format(calendar);
-            throw new Exception(cx);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
         return new LocalDateFormat(c, calendarType, "MMMM yyyy", locale).format(calendar);
     }
 }

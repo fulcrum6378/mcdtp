@@ -49,18 +49,18 @@
         <item>Esf</item>
     </string-array>
     <string-array name="indianMonths" translatable="false">
-        <item>Chaitra</item>
-        <item>Vaisakha</item>
-        <item>Jyaistha</item>
-        <item>Asadha</item>
-        <item>Sravana</item>
-        <item>Bhadra</item>
-        <item>Asvina</item>
-        <item>Kartika</item>
-        <item>Agrahayana</item>
-        <item>Pausa</item>
-        <item>Magha</item>
-        <item>Phalguna</item>
+        <item>Caitra</item>
+        <item>Vaiśākha</item>
+        <item>Jyēṣṭha</item>
+        <item>Āshādha</item>
+        <item>Śrāvana</item>
+        <item>Bhādra</item>
+        <item>Āśvin</item>
+        <item>Kārtika</item>
+        <item>Mārgaśīrṣa</item>
+        <item>Pauṣa</item>
+        <item>Māgha</item>
+        <item>Phālguna</item>
     </string-array>
     <string-array name="shortIndianMonths" translatable="false">
         <item>Cha</item>

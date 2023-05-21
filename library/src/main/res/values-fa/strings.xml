@@ -46,7 +46,7 @@
         <item>بهم</item>
         <item>اسف</item>
     </string-array>
-    <string-array name="indianMonths" translatable="false">
+    <string-array name="indianMonths">
         <item>چیت</item>
         <item>ویساخا</item>
         <item>جیشطا</item>
@@ -60,7 +60,7 @@
         <item>ماگ</item>
         <item>فالگون</item>
     </string-array>
-    <string-array name="shortIndianMonths" translatable="false">
+    <string-array name="shortIndianMonths">
         <item>چیت</item>
         <item>ویس</item>
         <item>جشط</item>

@@ -16,7 +16,7 @@
     <string name="previous_month_arrow_description">Предыдущий месяц</string>
 
     <!-- Calendars -->
-    <string-array name="persianMonths" translatable="false">
+    <string-array name="persianMonths">
         <item>Фарвардин</item>
         <item>Ордибехешт</item>
         <item>Хордад</item>
@@ -30,7 +30,7 @@
         <item>Бахман</item>
         <item>Эсфанд</item>
     </string-array>
-    <string-array name="shortPersianMonths" translatable="false">
+    <string-array name="shortPersianMonths">
         <item>Фрв</item>
         <item>Орд</item>
         <item>Хор</item>
@@ -43,5 +43,33 @@
         <item>Дей</item>
         <item>Бах</item>
         <item>Эсф</item>
+    </string-array>
+    <string-array name="indianMonths">
+        <item>Чайтра</item>
+        <item>Вайшакха</item>
+        <item>Джьештха</item>
+        <item>Ашадха</item>
+        <item>Шравана</item>
+        <item>Бхадра</item>
+        <item>Ашвина</item>
+        <item>Картика</item>
+        <item>Аграхайана</item>
+        <item>Пауша</item>
+        <item>Магха</item>
+        <item>Пхальгуна</item>
+    </string-array>
+    <string-array name="shortIndianMonths">
+        <item>Чай</item>
+        <item>Вай</item>
+        <item>Джь</item>
+        <item>Аша</item>
+        <item>Шра</item>
+        <item>Бха</item>
+        <item>Ашв</item>
+        <item>Кар</item>
+        <item>Агр</item>
+        <item>Пау</item>
+        <item>Маг</item>
+        <item>Пха</item>
     </string-array>
 </resources>
