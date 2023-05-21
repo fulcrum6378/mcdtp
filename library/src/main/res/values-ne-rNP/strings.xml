@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"सम्पन्न भयो"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"घण्टा गोलाकार स्लाइडर"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"मिनेट गोलाकार स्लाइडर"</string>
-    <string name="select_hours" msgid="7651068754188418859">"घण्टा चयन गर्नुहोस्"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"मिनेट चयन गर्नुहोस्"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"दिनहरुको महिना ग्रिड"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"वर्ष सूची"</string>
-    <string name="select_day" msgid="3973338219107019769">"महिना र दिन चयन गर्नुहोस्"</string>
-    <string name="select_year" msgid="2603330600102539372">"वर्ष चयन गर्नुहोस्"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"%1$s चयन गरियो"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"%1$s हटाइयो"</string>
-    <string name="date_v1_monthyear">yyyy MMMM</string>
-    <string name="date_v2_daymonthyear">MMM dd, EEE</string>
+<resources>
+    <string name="hour_picker_description">घण्टा गोलाकार स्लाइडर</string>
+    <string name="minute_picker_description">मिनेट गोलाकार स्लाइडर</string>
+    <string name="second_picker_description">सेकेन्ड गोलाकार स्लाइडर</string>
+    <string name="select_hours">घण्टा चयन गर्नुहोस्</string>
+    <string name="select_minutes">मिनेट चयन गर्नुहोस्</string>
+    <string name="select_seconds">सेकेन्ड चयन गर्नुहोस्</string>
+    <string name="day_picker_description">दिनहरुको महिना ग्रिड</string>
+    <string name="year_picker_description">वर्ष सूची</string>
+    <string name="select_day">महिना र दिन चयन गर्नुहोस्</string>
+    <string name="select_year">वर्ष चयन गर्नुहोस्</string>
+    <string name="item_is_selected">%s चयन गरियो</string>
+    <string name="deleted_key">%s हटाइयो</string>
+    <string name="next_month_arrow_description">अर्को महिना</string>
+    <string name="previous_month_arrow_description">अघिल्लो महिना</string>
 </resources>

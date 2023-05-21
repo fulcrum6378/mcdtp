@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Готово"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Выбор часов на циферблате"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Выбор минут на циферблате"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Выберите часы"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Выберите минуты"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Окно выбора даты"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Меню выбора года"</string>
-    <string name="select_day" msgid="3973338219107019769">"Выберите месяц и день"</string>
-    <string name="select_year" msgid="2603330600102539372">"Выберите год"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"Выбран элемент %1$s"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"Цифра %1$s удалена"</string>
-    <string name="date_v1_monthyear">LLLL yyyy</string>
-    <string name="date_v2_daymonthyear">ccc, dd MMM</string>
+<resources>
+    <string name="hour_picker_description">Выбор часов на циферблате</string>
+    <string name="minute_picker_description">Выбор минут на циферблате</string>
+    <string name="second_picker_description">Выбор секунд на циферблате</string>
+    <string name="select_hours">Выберите часы</string>
+    <string name="select_minutes">Выберите минуты</string>
+    <string name="select_seconds">Выберите секунды</string>
+    <string name="day_picker_description">Окно выбора даты</string>
+    <string name="year_picker_description">Меню выбора года</string>
+    <string name="select_day">Выберите месяц и день</string>
+    <string name="select_year">Выберите год</string>
+    <string name="item_is_selected">Выбран элемент %s</string>
+    <string name="deleted_key">Цифра %s удалена</string>
+    <string name="next_month_arrow_description">В следующем месяце</string>
+    <string name="previous_month_arrow_description">Предыдущий месяц</string>
+
+    <!-- Calendars -->
+    <string-array name="persianMonths" translatable="false">
+        <item>Фарвардин</item>
+        <item>Ордибехешт</item>
+        <item>Хордад</item>
+        <item>Тир</item>
+        <item>Мордад</item>
+        <item>Шахривар</item>
+        <item>Мехр</item>
+        <item>Абан</item>
+        <item>Азар</item>
+        <item>Дей</item>
+        <item>Бахман</item>
+        <item>Эсфанд</item>
+    </string-array>
+    <string-array name="shortPersianMonths" translatable="false">
+        <item>Фрв</item>
+        <item>Орд</item>
+        <item>Хор</item>
+        <item>Тир</item>
+        <item>Мор</item>
+        <item>Шах</item>
+        <item>Мех</item>
+        <item>Аба</item>
+        <item>Аза</item>
+        <item>Дей</item>
+        <item>Бах</item>
+        <item>Эсф</item>
+    </string-array>
 </resources>

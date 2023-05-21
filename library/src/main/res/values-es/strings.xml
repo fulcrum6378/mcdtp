@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Listo"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Control deslizante circular de horas"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Control deslizante circular de minutos"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Seleccionar horas"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Seleccionar minutos"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Cuadrícula mensual de días"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Lista de años"</string>
-    <string name="select_day" msgid="3973338219107019769">"Seleccionar mes y día"</string>
-    <string name="select_year" msgid="2603330600102539372">"Seleccionar año"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"%1$s seleccionado"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"%1$s eliminado"</string>
-    <string name="date_v1_monthyear">MMMM \'de\' yyyy</string>
-    <string name="date_v2_daymonthyear">EEE dd \'de\' MMM</string>
+<resources>
+    <string name="hour_picker_description">Control deslizante circular de horas</string>
+    <string name="minute_picker_description">Control deslizante circular de minutos</string>
+    <string name="second_picker_description">Control deslizador circular de segundos</string>
+    <string name="select_hours">Seleccionar horas</string>
+    <string name="select_minutes">Seleccionar minutos</string>
+    <string name="select_seconds">Seleccionar segundos</string>
+    <string name="day_picker_description">Cuadrícula mensual de días</string>
+    <string name="year_picker_description">Lista de años</string>
+    <string name="select_day">Seleccionar mes y día</string>
+    <string name="select_year">Seleccionar año</string>
+    <string name="item_is_selected">%s seleccionado</string>
+    <string name="deleted_key">%s eliminado</string>
     <string name="next_month_arrow_description">Pŕoximo Mes</string>
     <string name="previous_month_arrow_description">Mes Previo</string>
 </resources>

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Færdig"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Cirkulær timevælger"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Cirkulær minutvælger"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Vælg timer"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Vælg minutter"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Månedsgitter med dage"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Liste over år"</string>
-    <string name="select_day" msgid="3973338219107019769">"Vælg måned og dag"</string>
-    <string name="select_year" msgid="2603330600102539372">"Vælg år"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"%1$s valgt"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"%1$s er slettet"</string>
-    <string name="date_v1_monthyear">MMMM yyyy</string>
-    <string name="date_v2_daymonthyear">EEE dd. MMM</string>
+<resources>
+    <string name="hour_picker_description">Cirkulær timevælger</string>
+    <string name="minute_picker_description">Cirkulær minutvælger</string>
+    <string name="second_picker_description">Cirkulær skyder</string>
+    <string name="select_hours">Vælg timer</string>
+    <string name="select_minutes">Vælg minutter</string>
+    <string name="select_seconds">Vælg sekunder</string>
+    <string name="day_picker_description">Månedsgitter med dage</string>
+    <string name="year_picker_description">Liste over år</string>
+    <string name="select_day">Vælg måned og dag</string>
+    <string name="select_year">Vælg år</string>
+    <string name="item_is_selected">%s valgt</string>
+    <string name="deleted_key">%s er slettet</string>
     <string name="next_month_arrow_description">Næste måned</string>
     <string name="previous_month_arrow_description">Foregående måned</string>
 </resources>

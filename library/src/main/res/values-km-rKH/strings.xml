@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"ធ្វើ​រួច"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"គ្រាប់​រំកិល​រង្វង់​ម៉ោង"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"គ្រាប់​រំកិល​រង្វង់​នាទី"</string>
-    <string name="select_hours" msgid="7651068754188418859">"ជ្រើស​ម៉ោង"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"ជ្រើស​នាទី"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"ក្រឡាចត្រង្គ​ខែ​នៃ​ថ្ងៃ"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"បញ្ជី​ឆ្នាំ"</string>
-    <string name="select_day" msgid="3973338219107019769">"ជ្រើស​ខែ និង​ថ្ងៃ"</string>
-    <string name="select_year" msgid="2603330600102539372">"ជ្រើស​ឆ្នាំ"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"បាន​ជ្រើស %1$s"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"បាន​លុប %1$s"</string>
-    <string name="date_v1_monthyear">MMMM yyyy</string>
-    <string name="date_v2_daymonthyear">EEE dd MMM</string>
+<resources>
+    <string name="hour_picker_description">គ្រាប់ រំកិល រង្វង់ ម៉ោង</string>
+    <string name="minute_picker_description">គ្រាប់ រំកិល រង្វង់ នាទី</string>
+    <string name="second_picker_description">វិនាទី គ្រាប់រំកិលរាងជារង្វង់</string>
+    <string name="select_hours">ជ្រើស ម៉ោង</string>
+    <string name="select_minutes">ជ្រើស នាទី</string>
+    <string name="select_seconds">ជ្រើសរើសវិនាទី</string>
+    <string name="day_picker_description">ក្រឡាចត្រង្គ ខែ នៃ ថ្ងៃ</string>
+    <string name="year_picker_description">បញ្ជី ឆ្នាំ</string>
+    <string name="select_day">ជ្រើស ខែ និង ថ្ងៃ</string>
+    <string name="select_year">ជ្រើស ឆ្នាំ</string>
+    <string name="item_is_selected">បាន ជ្រើស %s</string>
+    <string name="deleted_key">បាន លុប %s</string>
+    <string name="next_month_arrow_description">ខែក្រោយ</string>
+    <string name="previous_month_arrow_description">ខែមុន។</string>
 </resources>

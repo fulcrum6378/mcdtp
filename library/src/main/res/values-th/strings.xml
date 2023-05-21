@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"เสร็จสิ้น"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"ตัวเลื่อนหมุนระบุชั่วโมง"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"ตัวเลื่อนหมุนระบุนาที"</string>
-    <string name="select_hours" msgid="7651068754188418859">"เลือกชั่วโมง"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"เลือกนาที"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"ตารางวันที่ของเดือน"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"รายการปี"</string>
-    <string name="select_day" msgid="3973338219107019769">"เลือกเดือนและวัน"</string>
-    <string name="select_year" msgid="2603330600102539372">"เลือกปี"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"เลือก %1$s"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"ลบ %1$s แล้ว"</string>
-    <string name="date_v1_monthyear">MMMM yyyy</string>
-    <string name="date_v2_daymonthyear">EEE dd MMM</string>
+<resources>
+    <string name="hour_picker_description">ตัวเลื่อนหมุนระบุชั่วโมง</string>
+    <string name="minute_picker_description">ตัวเลื่อนหมุนระบุนาที</string>
+    <string name="second_picker_description">แถบเลื่อนวงกลมวินาที</string>
+    <string name="select_hours">เลือกชั่วโมง</string>
+    <string name="select_minutes">เลือกนาที</string>
+    <string name="select_seconds">เลือกวินาที</string>
+    <string name="day_picker_description">ตารางวันที่ของเดือน</string>
+    <string name="year_picker_description">รายการปี</string>
+    <string name="select_day">เลือกเดือนและวัน</string>
+    <string name="select_year">เลือกปี</string>
+    <string name="item_is_selected">เลือก %s</string>
+    <string name="deleted_key">ลบ %s แล้ว</string>
+    <string name="next_month_arrow_description">เดือนหน้า</string>
+    <string name="previous_month_arrow_description">เดือนที่แล้ว</string>
 </resources>

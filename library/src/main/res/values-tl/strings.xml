@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Tapos na"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Pabilog na slider ng mga oras"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Pabilog na slider ng mga minuto"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Pumili ng mga oras"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Pumili ng mga minuto"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Grid ng mga araw ayon sa buwan"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Listahan ng taon"</string>
-    <string name="select_day" msgid="3973338219107019769">"Pumili ng buwan at araw"</string>
-    <string name="select_year" msgid="2603330600102539372">"Pumili ng taon"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"Napili ang %1$s"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"Tinanggal ang %1$s"</string>
-    <string name="date_v1_monthyear">MMMM yyyy</string>
-    <string name="date_v2_daymonthyear">EEE, MMM dd</string>
+<resources>
+    <string name="hour_picker_description">Pabilog na slider ng mga oras</string>
+    <string name="minute_picker_description">Pabilog na slider ng mga minuto</string>
+    <string name="second_picker_description">Pabilog na slider ng mga segundo</string>
+    <string name="select_hours">Pumili ng mga oras</string>
+    <string name="select_minutes">Pumili ng mga minuto</string>
+    <string name="select_seconds">Pumili ng mga segundo</string>
+    <string name="day_picker_description">Grid ng mga araw ayon sa buwan</string>
+    <string name="year_picker_description">Listahan ng taon</string>
+    <string name="select_day">Pumili ng buwan at araw</string>
+    <string name="select_year">Pumili ng taon</string>
+    <string name="item_is_selected">Napili ang %s</string>
+    <string name="deleted_key">Tinanggal ang %s</string>
+    <string name="next_month_arrow_description">Susunod na buwan</string>
+    <string name="previous_month_arrow_description">Nakaraang Buwan</string>
 </resources>

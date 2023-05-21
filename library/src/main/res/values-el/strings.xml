@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Τέλος"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Κυκλικό ρυθμιστικό ωρών"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Κυκλικό ρυθμιστικό λεπτών"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Επιλέξτε ώρες"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Επιλέξτε λεπτά"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Πλέγμα ημερών του μήνα"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Λίστα ετών"</string>
-    <string name="select_day" msgid="3973338219107019769">"Επιλογή μήνα και ημέρας"</string>
-    <string name="select_year" msgid="2603330600102539372">"Επιλογή έτους"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"Επιλέχτηκε το στοιχείο %1$s"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"%1$s διαγράφηκε"</string>
-    <string name="date_v1_monthyear">LLLL yyyy</string>
-    <string name="date_v2_daymonthyear">EEE, dd MMM</string>
+<resources>
+    <string name="hour_picker_description">Κυκλικό ρυθμιστικό ωρών</string>
+    <string name="minute_picker_description">Κυκλικό ρυθμιστικό λεπτών</string>
+    <string name="second_picker_description">Κυκλικό ρυθμιστικό δευτερολέπτων</string>
+    <string name="select_hours">Επιλέξτε ώρες</string>
+    <string name="select_minutes">Επιλέξτε λεπτά</string>
+    <string name="select_seconds">Επιλέξτε δευτερόλεπτα</string>
+    <string name="day_picker_description">Πλέγμα ημερών του μήνα</string>
+    <string name="year_picker_description">Λίστα ετών</string>
+    <string name="select_day">Επιλογή μήνα και ημέρας</string>
+    <string name="select_year">Επιλογή έτους</string>
+    <string name="item_is_selected">Επιλέχτηκε το στοιχείο %s</string>
+    <string name="deleted_key">%s διαγράφηκε</string>
+    <string name="next_month_arrow_description">Τον επόμενο μήνα</string>
+    <string name="previous_month_arrow_description">Προηγούμενος μήνας</string>
 </resources>

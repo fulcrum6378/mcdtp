@@ -274,6 +274,13 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
         CAL calendar = McdtpUtils.createCalendar(calendarType);
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.YEAR, year);
+        try {
+            LocalDateFormat ldf = new LocalDateFormat(c, calendarType, "MMMM yyyy", locale);
+            String cx = ldf.format(calendar);
+            throw new Exception(cx);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         return new LocalDateFormat(c, calendarType, "MMMM yyyy", locale).format(calendar);
     }
 }

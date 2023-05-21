@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Tayyor"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Soat ko‘rsatkichli doira"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Daqiqa ko‘rsatkichli doira"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Soatni tanlash"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Daqiqani tanlash"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Oy kunlari jadvali"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Yillar ro‘yxati"</string>
-    <string name="select_day" msgid="3973338219107019769">"Oy va kunni tanlash"</string>
-    <string name="select_year" msgid="2603330600102539372">"Yilni tanlash"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"%1$s tanlandi"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"%1$s o‘chirildi"</string>
-    <string name="date_v1_monthyear">yyyy MMMM</string>
-    <string name="date_v2_daymonthyear">MMM dd, EEE</string>
+<resources>
+    <string name="hour_picker_description">Soat ko‘rsatkichli doira</string>
+    <string name="minute_picker_description">Daqiqa ko‘rsatkichli doira</string>
+    <string name="second_picker_description">Ikkinchi ko‘rsatkichli doira</string>
+    <string name="select_hours">Soatni tanlash</string>
+    <string name="select_minutes">Daqiqani tanlash</string>
+    <string name="select_seconds">Soniyalarni tanlash</string>
+    <string name="day_picker_description">Oy kunlari jadvali</string>
+    <string name="year_picker_description">Yillar ro‘yxati</string>
+    <string name="select_day">Oy va kunni tanlash</string>
+    <string name="select_year">Yilni tanlash</string>
+    <string name="item_is_selected">%s tanlandi</string>
+    <string name="deleted_key">%s o‘chirildi</string>
+    <string name="next_month_arrow_description">Keyingi oy</string>
+    <string name="previous_month_arrow_description">Oldingi oy</string>
 </resources>

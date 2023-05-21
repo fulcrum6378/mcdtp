@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"OK"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Curseur circulaire des heures"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Curseur circulaire des minutes"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Sélectionner les heures"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Sélectionner les minutes"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Calendrier mensuel sous forme de grille"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Liste des années"</string>
-    <string name="select_day" msgid="3973338219107019769">"Sélectionnez un mois et un jour"</string>
-    <string name="select_year" msgid="2603330600102539372">"Sélectionnez une année"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"%1$s sélectionné"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"\"%1$s\" supprimé"</string>
-    <string name="date_v1_monthyear">MMMM yyyy</string>
-    <string name="date_v2_daymonthyear">EEE dd MMM</string>
+<resources>
+    <string name="hour_picker_description">Curseur circulaire des heures</string>
+    <string name="minute_picker_description">Curseur circulaire des minutes</string>
+    <string name="second_picker_description">Curseur circulaire des secondes</string>
+    <string name="select_hours">Sélectionner les heures</string>
+    <string name="select_minutes">Sélectionner les minutes</string>
+    <string name="select_seconds">Sélectionnez les secondes</string>
+    <string name="day_picker_description">Calendrier mensuel sous forme de grille</string>
+    <string name="year_picker_description">Liste des années</string>
+    <string name="select_day">Sélectionnez un mois et un jour</string>
+    <string name="select_year">Sélectionnez une année</string>
+    <string name="item_is_selected">%s sélectionné</string>
+    <string name="deleted_key">\"%s\" supprimé</string>
     <string name="next_month_arrow_description">Mois Suivant</string>
     <string name="previous_month_arrow_description">Mois Précédent</string>
 </resources>

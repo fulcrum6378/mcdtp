@@ -10,8 +10,8 @@
     <string name="year_picker_description">Årsliste</string>
     <string name="select_day">Velg måned og dag</string>
     <string name="select_year">Velg år</string>
-    <string name="item_is_selected">"%s valgt"</string>
-    <string name="deleted_key">%1$s slettet</string>
+    <string name="item_is_selected">%s valgt</string>
+    <string name="deleted_key">%s slettet</string>
     <string name="next_month_arrow_description">Neste måned</string>
     <string name="previous_month_arrow_description">Forrige måned</string>
 </resources>

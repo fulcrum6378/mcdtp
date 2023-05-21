@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-   >
-    <string name="done_label" msgid="7007948707597430919">"Готово"</string>
-    <string name="hour_picker_description" msgid="7586639618712934060">"Кружни клизач за сате"</string>
-    <string name="minute_picker_description" msgid="6024811202872705251">"Кружни клизач за минуте"</string>
-    <string name="select_hours" msgid="7651068754188418859">"Изабери сате"</string>
-    <string name="select_minutes" msgid="8327182090226828481">"Изабери минуте"</string>
-    <string name="day_picker_description" msgid="3968620852217927702">"Приказ дана у месецу у виду мреже"</string>
-    <string name="year_picker_description" msgid="6963340404644587098">"Листа година"</string>
-    <string name="select_day" msgid="3973338219107019769">"Изаберите месец и дан"</string>
-    <string name="select_year" msgid="2603330600102539372">"Изаберите годину"</string>
-    <string name="item_is_selected" msgid="2674929164900463786">"Ставка %1$s је изабрана"</string>
-    <string name="deleted_key" msgid="6908431551612331381">"Избрисали сте %1$s"</string>
-    <string name="date_v1_monthyear">MMMM yyyy.</string>
-    <string name="date_v2_daymonthyear">EEE dd. MMM</string>
+<resources>
+    <string name="hour_picker_description">Кружни клизач за сате</string>
+    <string name="minute_picker_description">Кружни клизач за минуте</string>
+    <string name="second_picker_description">Кружни клизач секунди</string>
+    <string name="select_hours">Изабери сате</string>
+    <string name="select_minutes">Изабери минуте</string>
+    <string name="select_seconds">Изаберите секунде</string>
+    <string name="day_picker_description">Приказ дана у месецу у виду мреже</string>
+    <string name="year_picker_description">Листа година</string>
+    <string name="select_day">Изаберите месец и дан</string>
+    <string name="select_year">Изаберите годину</string>
+    <string name="item_is_selected">Ставка %s је изабрана</string>
+    <string name="deleted_key">Избрисали сте %s</string>
+    <string name="next_month_arrow_description">Следећег месеца</string>
+    <string name="previous_month_arrow_description">Претходни мјесец</string>
 </resources>

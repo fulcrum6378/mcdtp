@@ -10,8 +10,8 @@
     <string name="year_picker_description">Year list</string>
     <string name="select_day">Select month and day</string>
     <string name="select_year">Select year</string>
-    <string name="item_is_selected">%1$s selected</string>
-    <string name="deleted_key">%1$s deleted</string>
+    <string name="item_is_selected">%s selected</string>
+    <string name="deleted_key">%s deleted</string>
     <string name="next_month_arrow_description">Next Month</string>
     <string name="previous_month_arrow_description">Previous Month</string>
     <string name="time_placeholder" translatable="false">00</string>
