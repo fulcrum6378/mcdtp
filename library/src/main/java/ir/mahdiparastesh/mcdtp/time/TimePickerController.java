@@ -1,6 +1,8 @@
 package ir.mahdiparastesh.mcdtp.time;
 
-interface TimePickerController {
+import ir.mahdiparastesh.mcdtp.FontCustomiser;
+
+interface TimePickerController extends FontCustomiser {
 
     boolean is24HourMode();
 
@@ -17,10 +19,4 @@ interface TimePickerController {
     boolean isPmDisabled();
 
     Timepoint roundToNearest(Timepoint time, Timepoint.TYPE type);
-
-    Integer getBoldFont();
-
-    Integer getNormalFont();
-
-    Integer getLightFont();
 }

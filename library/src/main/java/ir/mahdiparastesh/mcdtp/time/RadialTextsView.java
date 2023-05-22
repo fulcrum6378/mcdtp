@@ -31,8 +31,8 @@ public class RadialTextsView extends View {
 
     private SelectionValidator mValidator;
 
-    private Typeface mTypefaceLight;
-    private Typeface mTypefaceRegular;
+    private Typeface mTypefaceNormal;
+    //private Typeface mTypefaceBold;
     private String[] mTexts;
     private String[] mInnerTexts;
     private boolean mIs24HourMode;
@@ -76,8 +76,8 @@ public class RadialTextsView extends View {
         // Set up the paint.
         int textColorRes = McdtpUtils.night(context) ? R.color.white : R.color.numbers_text_color;
         mPaint.setColor(ContextCompat.getColor(context, textColorRes));
-        mTypefaceLight = McdtpUtils.lightFont(context, controller.getLightFont());
-        mTypefaceRegular = McdtpUtils.lightFont(context, controller.getNormalFont());
+        mTypefaceNormal = McdtpUtils.normalFont(context, controller);
+        //mTypefaceBold = McdtpUtils.boldFont(context, controller);
         mPaint.setAntiAlias(true);
         mPaint.setTextAlign(Align.CENTER);
 
@@ -86,6 +86,7 @@ public class RadialTextsView extends View {
         mSelectedPaint.setColor(selectedTextColor);
         mSelectedPaint.setAntiAlias(true);
         mSelectedPaint.setTextAlign(Align.CENTER);
+        mSelectedPaint.setTypeface(mTypefaceNormal);
 
         // Set up the inactive paint
         mInactivePaint.setColor(ContextCompat.getColor(context, R.color.date_picker_text_disabled));
@@ -219,8 +220,8 @@ public class RadialTextsView extends View {
         }
 
         // Draw the texts in the pre-calculated positions.
-        drawTexts(canvas, mTextSize, mTypefaceLight, mTexts, mTextGridWidths, mTextGridHeights);
-        if (mHasInnerCircle) drawTexts(canvas, mInnerTextSize, mTypefaceRegular, mInnerTexts,
+        drawTexts(canvas, mTextSize, mTypefaceNormal, mTexts, mTextGridWidths, mTextGridHeights);
+        if (mHasInnerCircle) drawTexts(canvas, mInnerTextSize, mTypefaceNormal, mInnerTexts,
                 mInnerTextGridWidths, mInnerTextGridHeights);
     }
 

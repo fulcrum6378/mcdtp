@@ -8,4 +8,5 @@
     android:gravity="center"
     android:textColor="@color/date_picker_year_selector"
     android:textSize="@dimen/year_label_text_size"
-    tools:viewBindingIgnore="true" />
+    tools:viewBindingIgnore="true"
+    tools:ignore="SpUsage" />

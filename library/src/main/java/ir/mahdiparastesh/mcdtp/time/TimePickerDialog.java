@@ -62,7 +62,6 @@ public class TimePickerDialog extends AppCompatDialogFragment
     private static final String KEY_LOCALE = "locale";
     private static final String KEY_BOLD_FONT_RES = "font_bold_resource";
     private static final String KEY_NORMAL_FONT_RES = "font_normal_resource";
-    private static final String KEY_LIGHT_FONT_RES = "font_light_resource";
 
     public static final int HOUR_INDEX = 0;
     public static final int MINUTE_INDEX = 1;
@@ -112,8 +111,6 @@ public class TimePickerDialog extends AppCompatDialogFragment
     private Integer mBoldFontRes = null;
     @FontRes
     private Integer mNormalFontRes = null;
-    @FontRes
-    private Integer mLightFontRes = null;
 
     // For hardware IME input.
     private char mPlaceholderText;
@@ -427,7 +424,7 @@ public class TimePickerDialog extends AppCompatDialogFragment
     @SuppressWarnings("unused")
     @Override
     public Integer getBoldFont() {
-        return mBoldFontRes != null ? mBoldFontRes : mNormalFontRes;
+        return mBoldFontRes;
     }
 
     @SuppressWarnings("unused")
@@ -444,17 +441,6 @@ public class TimePickerDialog extends AppCompatDialogFragment
     @SuppressWarnings("unused")
     public void setNormalFont(@FontRes int fontRes) {
         mNormalFontRes = fontRes;
-    }
-
-    @SuppressWarnings("unused")
-    @Override
-    public Integer getLightFont() {
-        return mLightFontRes != null ? mLightFontRes : mNormalFontRes;
-    }
-
-    @SuppressWarnings("unused")
-    public void setLightFont(@FontRes int fontRes) {
-        mLightFontRes = fontRes;
     }
 
     @Override
@@ -482,7 +468,6 @@ public class TimePickerDialog extends AppCompatDialogFragment
             mLocale = (Locale) savedInstanceState.getSerializable(KEY_LOCALE);
             mBoldFontRes = savedInstanceState.getInt(KEY_BOLD_FONT_RES);
             mNormalFontRes = savedInstanceState.getInt(KEY_NORMAL_FONT_RES);
-            mLightFontRes = savedInstanceState.getInt(KEY_LIGHT_FONT_RES);
 
             /*
             If the user supplied a custom limiter, we need to create a new default one to prevent
@@ -572,8 +557,8 @@ public class TimePickerDialog extends AppCompatDialogFragment
             tryVibrate();
         });
 
-        Typeface normalFont = McdtpUtils.normalFont(context, mNormalFontRes);
-        Typeface boldFont = McdtpUtils.boldFont(context, mBoldFontRes);
+        Typeface normalFont = McdtpUtils.normalFont(context, this);
+        Typeface boldFont = McdtpUtils.boldFont(context, this);
         mHourView.setTypeface(boldFont);
         mHourSpaceView.setTypeface(boldFont);
         mMinuteView.setTypeface(boldFont);
@@ -920,7 +905,6 @@ public class TimePickerDialog extends AppCompatDialogFragment
             outState.putSerializable(KEY_LOCALE, mLocale);
             outState.putInt(KEY_BOLD_FONT_RES, mBoldFontRes);
             outState.putInt(KEY_NORMAL_FONT_RES, mNormalFontRes);
-            outState.putInt(KEY_LIGHT_FONT_RES, mLightFontRes);
         }
     }
 

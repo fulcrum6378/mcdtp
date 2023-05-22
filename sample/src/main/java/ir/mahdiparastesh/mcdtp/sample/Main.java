@@ -28,6 +28,7 @@ public class Main extends FragmentActivity {
     TimePickerDialog.Version chosenTVer;
     boolean is24HourMode;
     boolean enableSeconds;
+    boolean doVibrate;
 
     public Main() {
         addCal("Gregorian", GregorianCalendar.class);
@@ -94,6 +95,7 @@ public class Main extends FragmentActivity {
         // Checkboxes
         b.is24HourMode.setOnCheckedChangeListener((v, isChecked) -> is24HourMode = isChecked);
         b.enableSeconds.setOnCheckedChangeListener((v, isChecked) -> enableSeconds = isChecked);
+        b.doVibrate.setOnCheckedChangeListener((v, isChecked) -> doVibrate = isChecked);
 
         // Date Picker
         b.datePicker.setOnClickListener(v -> {
@@ -108,8 +110,9 @@ public class Main extends FragmentActivity {
                     Toast.makeText(this, z(y) + "/" + z(m) + "/" + z(d),
                             Toast.LENGTH_LONG).show(), cal);
             picker.setVersion(chosenDVer);
-            //picker.setBoldFont(R.font.bold);
-            //picker.setNormalFont(R.font.normal);
+            picker.setBoldFont(R.font.bold);
+            picker.setNormalFont(R.font.normal);
+            picker.doVibrate(doVibrate);
             picker.show(getSupportFragmentManager(), "test_date");
         });
 
@@ -123,6 +126,7 @@ public class Main extends FragmentActivity {
             picker.setNormalFont(R.font.normal);
             picker.set24HourMode(is24HourMode);
             picker.enableSeconds(enableSeconds);
+            picker.doVibrate(doVibrate);
             picker.show(getSupportFragmentManager(), "test_time");
         });
     }

@@ -15,6 +15,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import ir.mahdiparastesh.mcdtp.McdtpUtils;
 import ir.mahdiparastesh.mcdtp.R;
 import ir.mahdiparastesh.mcdtp.TextViewWithCircularIndicator;
 import ir.mahdiparastesh.mcdtp.date.DatePickerDialog.OnDateChangedListener;
@@ -113,6 +114,7 @@ public class YearPickerView<CAL extends Calendar>
                 v = (TextViewWithCircularIndicator) LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.year_label_text_view, parent, false);
                 v.setAccentColor(mController.getAccentColor());
+                v.setTypeface(McdtpUtils.normalFont(parent.getContext(), mController));
             }
             int year = mMinYear + position;
             boolean selected = mController.getSelectedDay().year == year;

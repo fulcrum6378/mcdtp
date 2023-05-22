@@ -76,7 +76,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private static final String KEY_CALENDAR_TYPE = "calendar_type";
     private static final String KEY_BOLD_FONT_RES = "font_bold_resource";
     private static final String KEY_NORMAL_FONT_RES = "font_normal_resource";
-    private static final String KEY_LIGHT_FONT_RES = "font_light_resource";
 
     private static final int ANIMATION_DURATION = 300;
     private static final int ANIMATION_DELAY = 500;
@@ -125,8 +124,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private Integer mBoldFontRes = null;
     @FontRes
     private Integer mNormalFontRes = null;
-    @FontRes
-    private Integer mLightFontRes = null;
 
     private boolean mDelayAnimation = true;
 
@@ -249,7 +246,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         outState.putParcelable(KEY_DATERANGELIMITER, mDateRangeLimiter);
         outState.putInt(KEY_BOLD_FONT_RES, mBoldFontRes);
         outState.putInt(KEY_NORMAL_FONT_RES, mNormalFontRes);
-        outState.putInt(KEY_LIGHT_FONT_RES, mLightFontRes);
         outState.putSerializable(KEY_LOCALE, mLocale);
         outState.putSerializable(KEY_TIMEZONE, mTimezone);
     }
@@ -287,7 +283,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             mDateRangeLimiter = savedInstanceState.getParcelable(KEY_DATERANGELIMITER);
             mBoldFontRes = savedInstanceState.getInt(KEY_BOLD_FONT_RES);
             mNormalFontRes = savedInstanceState.getInt(KEY_NORMAL_FONT_RES);
-            mLightFontRes = savedInstanceState.getInt(KEY_LIGHT_FONT_RES);
 
             setLocale((Locale) savedInstanceState.getSerializable(KEY_LOCALE));
             if (mDateRangeLimiter instanceof DefaultDateRangeLimiter)
@@ -320,8 +315,8 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         mYearPickerDescription = res.getString(R.string.year_picker_description);
         mSelectYear = res.getString(R.string.select_year);
 
-        Typeface normalFont = McdtpUtils.normalFont(activity, mNormalFontRes);
-        Typeface boldFont = McdtpUtils.boldFont(activity, mBoldFontRes);
+        Typeface normalFont = McdtpUtils.normalFont(activity, this);
+        Typeface boldFont = McdtpUtils.boldFont(activity, this);
         if (mDatePickerHeaderView != null) mDatePickerHeaderView.setTypeface(normalFont);
         if (mSelectedMonthTextView != null) mSelectedMonthTextView.setTypeface(boldFont);
         mSelectedDayTextView.setTypeface(boldFont);
@@ -678,7 +673,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     @SuppressWarnings("unused")
     @Override
     public Integer getBoldFont() {
-        return mBoldFontRes != null ? mBoldFontRes : mNormalFontRes;
+        return mBoldFontRes;
     }
 
     @SuppressWarnings("unused")
@@ -695,17 +690,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     @SuppressWarnings("unused")
     public void setNormalFont(@FontRes int fontRes) {
         mNormalFontRes = fontRes;
-    }
-
-    @SuppressWarnings("unused")
-    @Override
-    public Integer getLightFont() {
-        return mLightFontRes != null ? mLightFontRes : mNormalFontRes;
-    }
-
-    @SuppressWarnings("unused")
-    public void setLightFont(@FontRes int fontRes) {
-        mLightFontRes = fontRes;
     }
 
     @SuppressWarnings("unused")

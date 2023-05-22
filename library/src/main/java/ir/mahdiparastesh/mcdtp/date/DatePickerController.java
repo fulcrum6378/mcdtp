@@ -5,7 +5,9 @@ import android.icu.util.TimeZone;
 
 import java.util.Locale;
 
-public interface DatePickerController<CAL extends Calendar> {
+import ir.mahdiparastesh.mcdtp.FontCustomiser;
+
+public interface DatePickerController<CAL extends Calendar> extends FontCustomiser {
 
     void onYearSelected(int year);
 
@@ -45,10 +47,4 @@ public interface DatePickerController<CAL extends Calendar> {
     DatePickerDialog.ScrollOrientation getScrollOrientation();
 
     Class<CAL> getCalendarType();
-
-    Integer getBoldFont();
-
-    Integer getNormalFont();
-
-    Integer getLightFont();
 }

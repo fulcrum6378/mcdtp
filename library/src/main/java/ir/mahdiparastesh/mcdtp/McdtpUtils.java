@@ -21,7 +21,6 @@ import android.os.VibratorManager;
 import android.util.TypedValue;
 import android.view.View;
 
-import androidx.annotation.FontRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
@@ -90,18 +89,14 @@ public class McdtpUtils {
         return calendar;
     }
 
-    public static Typeface boldFont(Context c, @FontRes Integer font) {
-        return font != null ? ResourcesCompat.getFont(c, font)
+    public static Typeface boldFont(Context c, FontCustomiser cus) {
+        return cus.getBoldFont() != null ? ResourcesCompat.getFont(c, cus.getBoldFont())
                 : Typeface.create("sans-serif", Typeface.BOLD);
     }
 
-    public static Typeface normalFont(Context c, @FontRes Integer font) {
-        return font != null ? ResourcesCompat.getFont(c, font) : Typeface.SANS_SERIF;
-    }
-
-    public static Typeface lightFont(Context c, @FontRes Integer font) {
-        return font != null ? ResourcesCompat.getFont(c, font) :
-                Typeface.create("sans-serif-light", Typeface.NORMAL);
+    public static Typeface normalFont(Context c, FontCustomiser cus) {
+        return cus.getNormalFont() != null ? ResourcesCompat.getFont(c, cus.getNormalFont())
+                : Typeface.SANS_SERIF;
     }
 
     public static boolean night(Context c) {

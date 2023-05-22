@@ -188,7 +188,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
             mMonthTitlePaint.setFakeBoldText(true);
         mMonthTitlePaint.setAntiAlias(true);
         mMonthTitlePaint.setTextSize(MONTH_LABEL_TEXT_SIZE);
-        mMonthTitlePaint.setTypeface(McdtpUtils.boldFont(getContext(), mController.getBoldFont()));
+        mMonthTitlePaint.setTypeface(McdtpUtils.boldFont(getContext(), mController));
         mMonthTitlePaint.setColor(mDayTextColor);
         mMonthTitlePaint.setTextAlign(Align.CENTER);
         mMonthTitlePaint.setStyle(Style.FILL);
@@ -206,7 +206,7 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mMonthDayLabelPaint.setTextSize(MONTH_DAY_LABEL_TEXT_SIZE);
         mMonthDayLabelPaint.setColor(mMonthDayTextColor);
         mMonthDayLabelPaint.setTypeface(McdtpUtils.normalFont(
-                getContext(), mController.getNormalFont()));
+                getContext(), mController));
         mMonthDayLabelPaint.setStyle(Style.FILL);
         mMonthDayLabelPaint.setTextAlign(Align.CENTER);
         mMonthDayLabelPaint.setFakeBoldText(true);
