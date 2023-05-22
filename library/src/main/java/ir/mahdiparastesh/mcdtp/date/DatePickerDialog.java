@@ -678,7 +678,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     @SuppressWarnings("unused")
     @Override
     public Integer getBoldFont() {
-        return mBoldFontRes;
+        return mBoldFontRes != null ? mBoldFontRes : mNormalFontRes;
     }
 
     @SuppressWarnings("unused")
@@ -700,7 +700,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     @SuppressWarnings("unused")
     @Override
     public Integer getLightFont() {
-        return mLightFontRes;
+        return mLightFontRes != null ? mLightFontRes : mNormalFontRes;
     }
 
     @SuppressWarnings("unused")

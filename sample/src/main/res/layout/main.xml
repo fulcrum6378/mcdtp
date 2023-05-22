@@ -61,5 +61,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="24 Hour Mode" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/enableSeconds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Enable Seconds" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,12 +39,13 @@ import ir.mahdiparastesh.mcdtp.McdtpUtils;
 import ir.mahdiparastesh.mcdtp.R;
 import ir.mahdiparastesh.mcdtp.time.RadialPickerLayout.OnValueSelectedListener;
 
-public class TimePickerDialog extends AppCompatDialogFragment implements
-        OnValueSelectedListener, TimePickerController {
+public class TimePickerDialog extends AppCompatDialogFragment
+        implements OnValueSelectedListener, TimePickerController {
 
     public enum Version {VERSION_1, VERSION_2}
 
     private static final String KEY_INITIAL_TIME = "initial_time";
+    private static final String KEY_24_HOUR_MODE = "24_hour_mode";
     private static final String KEY_TITLE = "dialog_title";
     private static final String KEY_CURRENT_ITEM_SHOWING = "current_item_showing";
     private static final String KEY_IN_KB_MODE = "in_kb_mode";
@@ -426,7 +427,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     @SuppressWarnings("unused")
     @Override
     public Integer getBoldFont() {
-        return mBoldFontRes;
+        return mBoldFontRes != null ? mBoldFontRes : mNormalFontRes;
     }
 
     @SuppressWarnings("unused")
@@ -448,7 +449,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     @SuppressWarnings("unused")
     @Override
     public Integer getLightFont() {
-        return mLightFontRes;
+        return mLightFontRes != null ? mLightFontRes : mNormalFontRes;
     }
 
     @SuppressWarnings("unused")
@@ -460,10 +461,9 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(AppCompatDialogFragment.STYLE_NO_TITLE, 0);
-        if (mIs24HourMode == null)
-            mIs24HourMode = DateFormat.is24HourFormat(getActivity());
         if (savedInstanceState != null && savedInstanceState.containsKey(KEY_INITIAL_TIME)) {
             mInitialTime = savedInstanceState.getParcelable(KEY_INITIAL_TIME);
+            mIs24HourMode = savedInstanceState.getBoolean(KEY_24_HOUR_MODE);
             mInKbMode = savedInstanceState.getBoolean(KEY_IN_KB_MODE);
             mTitle = savedInstanceState.getString(KEY_TITLE);
             if (savedInstanceState.containsKey(KEY_ACCENT))
@@ -495,7 +495,8 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
             mDefaultLimiter = mLimiter instanceof DefaultTimepointLimiter
                     ? (DefaultTimepointLimiter) mLimiter
                     : new DefaultTimepointLimiter();
-        }
+        } else if (mIs24HourMode == null)
+            mIs24HourMode = DateFormat.is24HourFormat(getActivity());
     }
 
     @Override
@@ -900,6 +901,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
     public void onSaveInstanceState(@NonNull Bundle outState) {
         if (mTimePicker != null) {
             outState.putParcelable(KEY_INITIAL_TIME, mTimePicker.getTime());
+            outState.putBoolean(KEY_24_HOUR_MODE, mIs24HourMode);
             outState.putInt(KEY_CURRENT_ITEM_SHOWING, mTimePicker.getCurrentItemShowing());
             outState.putBoolean(KEY_IN_KB_MODE, mInKbMode);
             if (mInKbMode) {

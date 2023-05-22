@@ -100,15 +100,8 @@ public class McdtpUtils {
     }
 
     public static Typeface lightFont(Context c, @FontRes Integer font) {
-        return font != null ? ResourcesCompat.getFont(c, font) : Typeface.SANS_SERIF;
-    }
-
-    public static Typeface dayOfWeekFont(Context c) {
-        return Typeface.create("sans-serif-light", Typeface.BOLD);
-    }
-
-    public static Typeface dayOfMonth(Context c, boolean isHighlighted) {
-        return Typeface.create(Typeface.DEFAULT, isHighlighted ? Typeface.BOLD : Typeface.NORMAL);
+        return font != null ? ResourcesCompat.getFont(c, font) :
+                Typeface.create("sans-serif-light", Typeface.NORMAL);
     }
 
     public static boolean night(Context c) {

@@ -27,6 +27,7 @@ public class Main extends FragmentActivity {
     DatePickerDialog.Version chosenDVer;
     TimePickerDialog.Version chosenTVer;
     boolean is24HourMode;
+    boolean enableSeconds;
 
     public Main() {
         addCal("Gregorian", GregorianCalendar.class);
@@ -90,10 +91,9 @@ public class Main extends FragmentActivity {
         });
         b.version.setSelection(1);
 
-        // 24 Hour Mode
-        b.is24HourMode.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            is24HourMode = isChecked;
-        });
+        // Checkboxes
+        b.is24HourMode.setOnCheckedChangeListener((v, isChecked) -> is24HourMode = isChecked);
+        b.enableSeconds.setOnCheckedChangeListener((v, isChecked) -> enableSeconds = isChecked);
 
         // Date Picker
         b.datePicker.setOnClickListener(v -> {
@@ -105,22 +105,30 @@ public class Main extends FragmentActivity {
             }
 
             DatePickerDialog<?> picker = DatePickerDialog.newInstance((dialog, y, m, d) ->
-                    Toast.makeText(this, y + "/" + m + "/" + d, Toast.LENGTH_LONG).show(), cal);
+                    Toast.makeText(this, z(y) + "/" + z(m) + "/" + z(d),
+                            Toast.LENGTH_LONG).show(), cal);
             picker.setVersion(chosenDVer);
-            picker.setBoldFont(R.font.bold);
-            picker.setNormalFont(R.font.normal);
+            //picker.setBoldFont(R.font.bold);
+            //picker.setNormalFont(R.font.normal);
             picker.show(getSupportFragmentManager(), "test_date");
         });
 
         // Time Picker
         b.timePicker.setOnClickListener(v -> {
             TimePickerDialog picker = TimePickerDialog.newInstance((dialog, h, m, s) ->
-                    Toast.makeText(this, h + ":" + m + ":" + s, Toast.LENGTH_LONG).show());
+                    Toast.makeText(this, z(h) + ":" + z(m) + ":" + z(s),
+                            Toast.LENGTH_LONG).show());
             picker.setVersion(chosenTVer);
             picker.setBoldFont(R.font.bold);
             picker.setNormalFont(R.font.normal);
             picker.set24HourMode(is24HourMode);
+            picker.enableSeconds(enableSeconds);
             picker.show(getSupportFragmentManager(), "test_time");
         });
+    }
+
+    String z(int n) {
+        String s = Integer.toString(n);
+        return s.length() == 1 ? ("0" + s) : s;
     }
 }
