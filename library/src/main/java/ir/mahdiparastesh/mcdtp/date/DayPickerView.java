@@ -140,7 +140,7 @@ public abstract class DayPickerView<CAL extends Calendar> extends RecyclerView
         mTempDay.set(day);
         int minMonth = mController.getStartDate().get(Calendar.MONTH);
         final int position = (day.year - mController.getMinYear())
-                * mController.getStartDate().getActualMaximum(Calendar.MONTH) + day.month - minMonth;
+                * (mController.getStartDate().getActualMaximum(Calendar.MONTH) + 1) + day.month - minMonth;
 
         View child;
         int i = 0;
