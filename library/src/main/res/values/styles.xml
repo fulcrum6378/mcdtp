@@ -4,7 +4,7 @@
 
     <style name="time_label">
         <item name="android:textSize">@dimen/time_label_size</item>
-        <item name="android:textColor">@color/numbers_text_color</item>
+        <item name="android:textColor">#212121</item>
     </style>
 
     <style name="time_label_small" parent="time_label">

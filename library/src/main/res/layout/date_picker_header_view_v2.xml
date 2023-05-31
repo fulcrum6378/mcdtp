@@ -9,7 +9,7 @@
     android:gravity="center"
     android:importantForAccessibility="no"
     android:includeFontPadding="false"
-    android:textColor="?colorOnPrimary"
+    android:textColor="?colorOnSurface"
     android:textSize="@dimen/date_picker_header_text_size"
     tool:text="DIALOG TITLE"
     tools:viewBindingIgnore="true" />

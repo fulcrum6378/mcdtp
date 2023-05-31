@@ -10,7 +10,7 @@
     android:includeFontPadding="false"
     android:maxLines="1"
     android:paddingTop="@dimen/date_picker_title_padding"
-    android:textColor="?colorOnPrimary"
+    android:textColor="?colorOnSurface"
     android:textSize="@dimen/date_picker_header_text_size"
     tools:text="Dialog Title"
     tools:viewBindingIgnore="true" />

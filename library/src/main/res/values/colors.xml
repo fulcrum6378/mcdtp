@@ -4,7 +4,6 @@
     <color name="circle_background">@color/background_color</color>
     <color name="circle_background_dark_theme">#525252</color><!-- don't move -->
     <color name="circle_color">#f5f5f5</color>
-    <color name="numbers_text_color">#212121</color>
     <color name="translucent_black">#7f000000</color>
     <color name="accent_color_focused">#76ffffff</color>
     <color name="date_picker_text_normal">#212121</color>

@@ -9,6 +9,6 @@
     android:importantForAccessibility="no"
     android:includeFontPadding="false"
     android:textAllCaps="@bool/title_all_caps"
-    android:textColor="?colorOnPrimary"
+    android:textColor="?colorOnSurface"
     android:textSize="@dimen/date_picker_header_text_size"
     tools:viewBindingIgnore="true" />
