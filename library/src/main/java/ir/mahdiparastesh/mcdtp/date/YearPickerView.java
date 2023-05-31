@@ -21,8 +21,8 @@ import ir.mahdiparastesh.mcdtp.TextViewWithCircularIndicator;
 import ir.mahdiparastesh.mcdtp.date.DatePickerDialog.OnDateChangedListener;
 
 @SuppressLint("ViewConstructor")
-public class YearPickerView<CAL extends Calendar>
-        extends ListView implements OnItemClickListener, OnDateChangedListener {
+public class YearPickerView<CAL extends Calendar> extends ListView
+        implements OnItemClickListener, OnDateChangedListener {
     private final DatePickerController<CAL> mController;
     private YearAdapter mAdapter;
     private final int mViewSize;

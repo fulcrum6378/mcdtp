@@ -8,11 +8,11 @@
         background: ?colorPrimary
         text: ?colorOnPrimary
       main:
-        background: ?colorSurface
+        background: ?colorSecondary
         text: ?colorOnSurface
-      selectedDate + AmPm:
-        background: ?colorPrimary
-        text: ?colorOnPrimary
+      selectedDate + amPm + selectedYear:
+        background: ?colorPrimaryContainer
+        text: ?colorOnPrimaryContainer
       buttons:
         background: ?buttonTint
         text: ?colorOnSecondary
@@ -20,11 +20,12 @@
     <style name="Theme.MultiCalendarDTP" parent="Theme.Material3.DayNight">
         <item name="colorPrimary">#FF6F00</item>
         <item name="colorPrimaryVariant">#E36505</item>
+        <item name="colorPrimaryContainer">?colorPrimary</item>
+        <item name="colorOnPrimaryContainer">#FFF</item>
         <item name="colorOnPrimary">#FFFFFF</item>
-        <item name="colorSecondary">#07CAAD</item>
-        <item name="colorOnSecondary">#03715F</item>
-        <item name="colorSurface">#ECF8F6</item>
-        <item name="colorOnSurface">#03715F</item>
+        <item name="colorSecondary">#FFFBFF</item>
+        <item name="colorSecondaryVariant">#E36505</item>
+        <item name="colorOnSecondary">#6C2F00</item>
         <item name="buttonTint">@android:color/transparent</item>
     </style>
 </resources>

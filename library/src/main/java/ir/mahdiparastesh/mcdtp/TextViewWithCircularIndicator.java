@@ -31,7 +31,7 @@ public class TextViewWithCircularIndicator extends AppCompatTextView {
         mCirclePaint.setFakeBoldText(true);
         mCirclePaint.setAntiAlias(true);
         mCirclePaint.setColor(McdtpUtils.themeColor(getContext(),
-                com.google.android.material.R.attr.colorOnSurface));
+                com.google.android.material.R.attr.colorPrimaryContainer));
         mCirclePaint.setTextAlign(Align.CENTER);
         mCirclePaint.setStyle(Style.FILL);
         mCirclePaint.setAlpha(SELECTED_CIRCLE_ALPHA);

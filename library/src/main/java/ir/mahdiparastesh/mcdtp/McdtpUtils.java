@@ -6,7 +6,6 @@ import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.icu.text.DateFormatSymbols;
 import android.icu.util.Calendar;
@@ -69,13 +68,6 @@ public class McdtpUtils {
         float px = TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
         return (int) px;
-    }
-
-    public static int darkenColor(int color) {
-        float[] hsv = new float[3];
-        Color.colorToHSV(color, hsv);
-        hsv[2] = hsv[2] * 0.8f; // value component
-        return Color.HSVToColor(hsv);
     }
 
     @ColorInt

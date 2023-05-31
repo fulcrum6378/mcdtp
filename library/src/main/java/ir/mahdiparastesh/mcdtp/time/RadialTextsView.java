@@ -82,8 +82,7 @@ public class RadialTextsView extends View {
         mPaint.setTextAlign(Align.CENTER);
 
         // Set up the selected paint
-        int selectedTextColor = ContextCompat.getColor(context, android.R.color.white);
-        mSelectedPaint.setColor(selectedTextColor);
+        mSelectedPaint.setColor(ContextCompat.getColor(context, android.R.color.white));
         mSelectedPaint.setAntiAlias(true);
         mSelectedPaint.setTextAlign(Align.CENTER);
         mSelectedPaint.setTypeface(mTypefaceNormal);
