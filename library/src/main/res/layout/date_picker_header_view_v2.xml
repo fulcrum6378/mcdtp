@@ -5,11 +5,11 @@
     android:id="@+id/date_picker_header"
     android:layout_width="match_parent"
     android:layout_height="@dimen/date_picker_title_height"
-    android:background="@color/calendar_header"
+    android:background="?colorPrimaryVariant"
     android:gravity="center"
     android:importantForAccessibility="no"
     android:includeFontPadding="false"
-    android:textColor="@color/white"
+    android:textColor="?colorOnPrimary"
     android:textSize="@dimen/date_picker_header_text_size"
     tool:text="DIALOG TITLE"
     tools:viewBindingIgnore="true" />

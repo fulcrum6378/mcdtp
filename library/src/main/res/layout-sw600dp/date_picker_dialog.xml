@@ -20,5 +20,5 @@
 
     <include layout="@layout/date_picker_view_animator" />
 
-    <include layout="@layout/done_button" />
+    <include layout="@layout/buttons" />
 </LinearLayout>

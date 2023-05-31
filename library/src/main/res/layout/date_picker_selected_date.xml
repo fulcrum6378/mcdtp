@@ -5,7 +5,7 @@
     android:layout_width="@dimen/date_picker_component_width"
     android:layout_height="@dimen/selected_date_height"
     android:layout_weight="1"
-    android:background="@color/accent_color"
+    android:background="?colorPrimary"
     android:gravity="center"
     android:orientation="vertical"
     tools:viewBindingIgnore="true">

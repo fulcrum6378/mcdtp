@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@color/accent_color"
+    android:background="?colorPrimary"
     android:clipChildren="false"
     android:padding="16dp"
     tools:ignore="RtlHardcoded"
@@ -51,7 +51,7 @@
             android:background="@android:color/transparent"
             android:gravity="center_horizontal"
             android:text="@string/time_placeholder"
-            android:textColor="@color/white" />
+            android:textColor="@android:color/white" />
     </FrameLayout>
 
     <TextView

@@ -85,61 +85,14 @@ You can set the layout version using the factory
 
 ```java
 dpd.setVersion(DatePickerDialog.Version.VERSION_2);
-```
-
-The pickers will be themed automatically based on the current theme where they are created, based on the
-current `colorAccent`. You can also theme the dialogs via the `setAccentColor(int color)` method. Alternatively, you can
-theme the pickers by overwriting the color resources `accent_color` and `accent_color_dark` in your project.
-
-```xml
-
-<color name="accent_color">#009688</color>
-<color name="accent_color_dark">#00796b</color>
-```
-
-The exact order in which colors are selected is as follows:
-
-1. `setAccentColor(int color)` in java code
-2. `android.R.attr.colorAccent` (if android 5.0+)
-3. `R.attr.colorAccent` (eg. when using AppCompat)
-4. `R.color.accent_color` and `R.color.accent_color_dark` if none of the others are set in your project
-
-The pickers also have a dark theme. This can be specified globablly using the `theme_dark` attribute in your theme
-or the `setThemeDark(boolean themeDark)` functions. The function calls overwrite the XML setting.
-
-```xml
-
-<item name="theme_dark">true</item>
-```
 
 ## Additional Options
-
-### [All] `setThemeDark(boolean themeDark)`
-
-The dialogs have a dark theme that can be set by calling
-
-```java
-dialog.setThemeDark(true);
-```
-
-### [All] `setAccentColor(String color)` and `setAccentColor(int color)`
-
-Set the accentColor to be used by the Dialog. The String version parses the color out using `Color.parseColor()`. The
-int version requires a ColorInt bytestring. It will explicitly set the color to fully opaque.
-
-### [All] `setOkColor()` and `setCancelColor()`
-
-Set the text color for the OK or Cancel button. Behaves similar to `setAccentColor()`
 
 ### [TimePickerDialog] `setTitle(String title)`
 
 Shows a title at the top of the `TimePickerDialog`
 
 ### [DatePickerDialog] `setTitle(String title)`
-
-Shows a title at the top of the `DatePickerDialog` instead of the day of the week
-
-### [All] `setOkText()` and `setCancelText()`
 
 Set a custom text for the dialog Ok and Cancel labels. Can take a resourceId of a String. Works in both the
 DatePickerDialog and TimePickerDialog
@@ -390,66 +343,6 @@ class MyDateRangeLimiter implements DateRangeLimiter {
 
 When you provide a custom `DateRangeLimiter` the built-in methods for setting the enabled / disabled dates will no
 longer work. It will need to be completely handled by your implementation.
-
-### Why do the OK and Cancel buttons have the accent color as a background when combined with the Material Components library
-
-[Material Components](https://github.com/material-components/material-components-android) replaces all instances
-of `Button` with an instance of `MaterialButton` when using one of its regular
-themes: https://github.com/material-components/material-components-android/blob/master/docs/getting-started.md#material-components-themes  
-The default version of `MaterialButton` uses `colorPrimary` as the background color. Because Material Components
-replaces the View replacer with their own implementation there is not much I can do to fix this from this library.
-
-There are a few workarounds:
-
-* Use one of the bridge themes, which do not replace the View Inflater
-* Overwrite the style of the mdtp buttons with one that inherits from Material Components text buttons, as
-  described [here](https://github.com/wdullaer/MaterialDateTimePicker/issues/523#issuecomment-477349333):
-    ```xml
-    <style name="ActionButton.Text" parent="Widget.MaterialComponents.Button.TextButton.Dialog"/>
-    ```
-* Overwrite the View inflater again in your application theme by adding the following statement in your application
-  theme:
-    ```xml
-  <item name="viewInflaterClass">androidx.appcompat.app.AppCompatViewInflater</item>
-    ```
-  You will then need to explicitly use `MaterialButton` in your application rather than `Button`
-
-### Why are my callbacks lost when the device changes orientation?
-
-The simple solution is to dismiss the pickers when your activity is paused.
-
-```java
-tpd.dismissOnPause(true);
-```
-
-If you do wish to retain the pickers when an orientation change occurs, things become a bit more tricky.
-
-By default, when an orientation changes occurs android will destroy and recreate your entire `Activity`. Wherever
-possible this library will retain its state on an orientation change. The only notable exceptions are the different
-callbacks and listeners. These interfaces are often implemented on `Activities` or `Fragments`. Naively trying to retain
-them would cause memory leaks. Apart from explicitly requiring that the callback interfaces are implemented on
-an `Activity`, there is no safe way to properly retain the callbacks, that I'm aware off.
-
-This means that it is your responsibility to set the listeners in your `Activity`'s `onResume()` callback.
-
-```java
-@Override
-public void onResume() {
-  super.onResume();
-
-  DatePickerDialog dpd = (DatePickerDialog) getFragmentManager().findFragmentByTag("Datepickerdialog");
-  TimePickerDialog tpd = (TimePickerDialog) getFragmentManager().findFragmentByTag("TimepickerDialog");
-
-  if(tpd != null) tpd.setOnTimeSetListener(this);
-  if(dpd != null) dpd.setOnDateSetListener(this);
-}
-```
-
-## Potential Improvements
-
-* Landscape timepicker can use some improvement
-* Code cleanup: there is a bit too much spit and ductape in the tweaks I've done.
-* Document all options on both pickers
 
 ## License
 

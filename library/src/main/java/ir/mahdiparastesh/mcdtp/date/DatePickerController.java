@@ -20,8 +20,6 @@ public interface DatePickerController<CAL extends Calendar> extends FontCustomis
 
     MonthAdapter.CalendarDay<CAL> getSelectedDay();
 
-    int getAccentColor();
-
     boolean isHighlighted(int year, int month, int day);
 
     int getFirstDayOfWeek();

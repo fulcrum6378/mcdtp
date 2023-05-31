@@ -40,7 +40,8 @@ public class CircleView extends View {
 
         int colorRes = McdtpUtils.night(context) ? R.color.circle_background_dark_theme : R.color.circle_color;
         mCircleColor = ContextCompat.getColor(context, colorRes);
-        mDotColor = controller.getAccentColor();
+        mDotColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorPrimary);
         mPaint.setAntiAlias(true);
 
         mIs24HourMode = controller.is24HourMode();

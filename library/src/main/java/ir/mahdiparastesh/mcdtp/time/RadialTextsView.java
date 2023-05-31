@@ -74,7 +74,7 @@ public class RadialTextsView extends View {
         Resources res = context.getResources();
 
         // Set up the paint.
-        int textColorRes = McdtpUtils.night(context) ? R.color.white : R.color.numbers_text_color;
+        int textColorRes = McdtpUtils.night(context) ? android.R.color.white : R.color.numbers_text_color;
         mPaint.setColor(ContextCompat.getColor(context, textColorRes));
         mTypefaceNormal = McdtpUtils.normalFont(context, controller);
         //mTypefaceBold = McdtpUtils.boldFont(context, controller);
@@ -82,7 +82,7 @@ public class RadialTextsView extends View {
         mPaint.setTextAlign(Align.CENTER);
 
         // Set up the selected paint
-        int selectedTextColor = ContextCompat.getColor(context, R.color.white);
+        int selectedTextColor = ContextCompat.getColor(context, android.R.color.white);
         mSelectedPaint.setColor(selectedTextColor);
         mSelectedPaint.setAntiAlias(true);
         mSelectedPaint.setTextAlign(Align.CENTER);

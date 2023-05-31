@@ -21,6 +21,8 @@ import android.os.VibratorManager;
 import android.util.TypedValue;
 import android.view.View;
 
+import androidx.annotation.AttrRes;
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
@@ -64,7 +66,8 @@ public class McdtpUtils {
 
     @SuppressWarnings("unused")
     public static int dpToPx(float dp, Resources resources) {
-        float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
+        float px = TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
         return (int) px;
     }
 
@@ -75,9 +78,10 @@ public class McdtpUtils {
         return Color.HSVToColor(hsv);
     }
 
-    public static int getAccentColorFromThemeIfAvailable(Context context) {
+    @ColorInt
+    public static int themeColor(Context context, @AttrRes int res) {
         TypedValue typedValue = new TypedValue();
-        context.getTheme().resolveAttribute(android.R.attr.colorAccent, typedValue, true);
+        context.getTheme().resolveAttribute(res, typedValue, true);
         return typedValue.data;
     }
 

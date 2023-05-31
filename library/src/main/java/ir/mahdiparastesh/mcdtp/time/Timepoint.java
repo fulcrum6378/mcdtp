@@ -10,10 +10,12 @@ import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-/** Simple utility class that represents a time in the day up to second precision
+/**
+ * Simple utility class that represents a time in the day up to second precision
  * The time input is expected to use 24 hour mode.
  * Fields are modulo'd into their correct ranges.
- * It does not handle timezones. */
+ * It does not handle timezones.
+ */
 @SuppressWarnings("WeakerAccess")
 public class Timepoint implements Parcelable, Comparable<Timepoint> {
     private int hour;

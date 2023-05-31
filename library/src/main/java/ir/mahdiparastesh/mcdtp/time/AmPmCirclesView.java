@@ -59,17 +59,22 @@ public class AmPmCirclesView extends View {
         mAmPmDisabledTextColor = ContextCompat.getColor(context, R.color.date_picker_text_disabled);
         if (McdtpUtils.night(context)) {
             mUnselectedColor = ContextCompat.getColor(context, R.color.circle_background_dark_theme);
-            mAmPmTextColor = ContextCompat.getColor(context, R.color.white);
+            mAmPmTextColor = McdtpUtils.themeColor(context,
+                    com.google.android.material.R.attr.colorOnSurface);
             mSelectedAlpha = SELECTED_ALPHA_THEME_DARK;
         } else {
-            mUnselectedColor = ContextCompat.getColor(context, R.color.white);
-            mAmPmTextColor = ContextCompat.getColor(context, R.color.ampm_text_color);
+            mUnselectedColor = ContextCompat.getColor(context, android.R.color.white);
+            mAmPmTextColor = McdtpUtils.themeColor(context,
+                    com.google.android.material.R.attr.colorOnSurface);
             mSelectedAlpha = SELECTED_ALPHA;
         }
 
-        mSelectedColor = controller.getAccentColor();
-        mTouchedColor = McdtpUtils.darkenColor(mSelectedColor);
-        mAmPmSelectedTextColor = ContextCompat.getColor(context, R.color.white);
+        mSelectedColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorPrimary);
+        mTouchedColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorPrimaryVariant);
+        mAmPmSelectedTextColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorOnPrimary);
 
         mPaint.setTypeface(McdtpUtils.normalFont(context, controller));
         mPaint.setAntiAlias(true);

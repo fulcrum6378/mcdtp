@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MultiCalendarDTP" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">#FF6F00</item>
+        <item name="colorPrimaryVariant">#E36505</item>
+        <item name="colorOnPrimary">#FFF</item>
+        <item name="colorSecondary">#07CAAD</item>
+        <item name="colorOnSecondary">#ECF8F6</item>
+        <item name="colorSurface">#03715F</item>
+        <item name="colorOnSurface">#FFF</item>
+        <item name="buttonTint">@android:color/transparent</item>
+    </style>
+</resources>

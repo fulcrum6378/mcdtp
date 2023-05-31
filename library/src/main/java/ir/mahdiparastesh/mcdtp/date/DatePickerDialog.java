@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.icu.text.DateFormatSymbols;
 import android.icu.util.Calendar;
@@ -26,7 +25,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.FontRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
@@ -60,14 +58,11 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private static final String KEY_CURRENT_VIEW = "current_view";
     private static final String KEY_LIST_POSITION_OFFSET = "list_position_offset";
     private static final String KEY_HIGHLIGHTED_DAYS = "highlighted_days";
-    private static final String KEY_ACCENT = "accent";
     private static final String KEY_VIBRATE = "vibrate";
     private static final String KEY_DISMISS = "dismiss";
     private static final String KEY_AUTO_DISMISS = "auto_dismiss";
     private static final String KEY_DEFAULT_VIEW = "default_view";
     private static final String KEY_TITLE = "title";
-    private static final String KEY_OK_COLOR = "ok_color";
-    private static final String KEY_CANCEL_COLOR = "cancel_color";
     private static final String KEY_VERSION = "version";
     private static final String KEY_TIMEZONE = "timezone";
     private static final String KEY_DATERANGELIMITER = "daterangelimiter";
@@ -109,13 +104,10 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     private int mWeekStart;
     private String mTitle;
     private HashSet<CAL> highlightedDays = new HashSet<>();
-    private Integer mAccentColor = null;
     private boolean mVibrate = true;
     private boolean mDismissOnPause = false;
     private boolean mAutoDismiss = false;
     private int mDefaultView = MONTH_AND_DAY_VIEW;
-    private Integer mOkColor = null;
-    private Integer mCancelColor = null;
     private Version mVersion = Version.VERSION_2;
     private ScrollOrientation mScrollOrientation;
     private DefaultDateRangeLimiter<CAL> mDefaultLimiter;
@@ -233,14 +225,11 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
         }
         outState.putInt(KEY_LIST_POSITION, listPosition);
         outState.putSerializable(KEY_HIGHLIGHTED_DAYS, highlightedDays);
-        if (mAccentColor != null) outState.putInt(KEY_ACCENT, mAccentColor);
         outState.putBoolean(KEY_VIBRATE, mVibrate);
         outState.putBoolean(KEY_DISMISS, mDismissOnPause);
         outState.putBoolean(KEY_AUTO_DISMISS, mAutoDismiss);
         outState.putInt(KEY_DEFAULT_VIEW, mDefaultView);
         outState.putString(KEY_TITLE, mTitle);
-        if (mOkColor != null) outState.putInt(KEY_OK_COLOR, mOkColor);
-        if (mCancelColor != null) outState.putInt(KEY_CANCEL_COLOR, mCancelColor);
         outState.putSerializable(KEY_VERSION, mVersion);
         outState.putSerializable(KEY_SCROLL_ORIENTATION, mScrollOrientation);
         outState.putParcelable(KEY_DATERANGELIMITER, mDateRangeLimiter);
@@ -267,16 +256,10 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             listPosition = savedInstanceState.getInt(KEY_LIST_POSITION);
             listPositionOffset = savedInstanceState.getInt(KEY_LIST_POSITION_OFFSET);
             highlightedDays = (HashSet<CAL>) savedInstanceState.getSerializable(KEY_HIGHLIGHTED_DAYS);
-            if (savedInstanceState.containsKey(KEY_ACCENT))
-                mAccentColor = savedInstanceState.getInt(KEY_ACCENT);
             mVibrate = savedInstanceState.getBoolean(KEY_VIBRATE);
             mDismissOnPause = savedInstanceState.getBoolean(KEY_DISMISS);
             mAutoDismiss = savedInstanceState.getBoolean(KEY_AUTO_DISMISS);
             mTitle = savedInstanceState.getString(KEY_TITLE);
-            if (savedInstanceState.containsKey(KEY_OK_COLOR))
-                mOkColor = savedInstanceState.getInt(KEY_OK_COLOR);
-            if (savedInstanceState.containsKey(KEY_CANCEL_COLOR))
-                mCancelColor = savedInstanceState.getInt(KEY_CANCEL_COLOR);
             mVersion = (Version) savedInstanceState.getSerializable(KEY_VERSION);
             mScrollOrientation = (ScrollOrientation)
                     savedInstanceState.getSerializable(KEY_SCROLL_ORIENTATION);
@@ -344,7 +327,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             dismiss();
         });
         okButton.setTypeface(boldFont);
-        okButton.setText(android.R.string.ok);
 
         Button cancelButton = view.findViewById(R.id.cancel);
         cancelButton.setOnClickListener(v -> {
@@ -352,22 +334,7 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
             if (getDialog() != null) getDialog().cancel();
         });
         cancelButton.setTypeface(boldFont);
-        cancelButton.setText(android.R.string.cancel);
         cancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
-
-        // If an accent color has not been set manually, get it from the context
-        if (mAccentColor == null)
-            mAccentColor = McdtpUtils.getAccentColorFromThemeIfAvailable(activity);
-        if (mDatePickerHeaderView != null)
-            mDatePickerHeaderView.setBackgroundColor(McdtpUtils.darkenColor(mAccentColor));
-        view.findViewById(R.id.day_picker_selected_date_layout).setBackgroundColor(mAccentColor);
-
-        // Buttons can have a different color
-        if (mOkColor == null) mOkColor = mAccentColor;
-        okButton.setTextColor(mOkColor);
-
-        if (mCancelColor == null) mCancelColor = mAccentColor;
-        cancelButton.setTextColor(mCancelColor);
 
         if (getDialog() == null)
             view.findViewById(R.id.done_background).setVisibility(View.GONE);
@@ -520,41 +487,6 @@ public class DatePickerDialog<CAL extends Calendar> extends AppCompatDialogFragm
     @SuppressWarnings("unused")
     public void autoDismiss(boolean autoDismiss) {
         mAutoDismiss = autoDismiss;
-    }
-
-    @SuppressWarnings("unused")
-    public void setAccentColor(String color) {
-        mAccentColor = Color.parseColor(color);
-    }
-
-    @SuppressWarnings("unused")
-    public void setAccentColor(@ColorInt int color) {
-        mAccentColor = Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
-    }
-
-    @SuppressWarnings("unused")
-    public void setOkColor(String color) {
-        mOkColor = Color.parseColor(color);
-    }
-
-    @SuppressWarnings("unused")
-    public void setOkColor(@ColorInt int color) {
-        mOkColor = Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
-    }
-
-    @SuppressWarnings("unused")
-    public void setCancelColor(String color) {
-        mCancelColor = Color.parseColor(color);
-    }
-
-    @SuppressWarnings("unused")
-    public void setCancelColor(@ColorInt int color) {
-        mCancelColor = Color.argb(255, Color.red(color), Color.green(color), Color.blue(color));
-    }
-
-    @Override
-    public int getAccentColor() {
-        return mAccentColor;
     }
 
     @SuppressWarnings("unused")

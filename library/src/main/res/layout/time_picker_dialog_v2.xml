@@ -13,7 +13,6 @@
         android:id="@+id/time_display_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/accent_color"
         android:orientation="vertical">
 
         <include layout="@layout/time_title_view_v2" />
@@ -34,5 +33,5 @@
             android:focusableInTouchMode="true" />
     </LinearLayout>
 
-    <include layout="@layout/done_button" />
+    <include layout="@layout/buttons" />
 </LinearLayout>

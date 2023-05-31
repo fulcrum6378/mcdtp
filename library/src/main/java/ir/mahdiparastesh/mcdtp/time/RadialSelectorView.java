@@ -66,8 +66,9 @@ public class RadialSelectorView extends View {
      * Initialize this selector with the state of the picker.
      *
      * @param context          Current context.
-     * @param controller       Structure containing the accentColor and the 24-hour mode, which will tell us
-     *                         whether the circle's center is moved up slightly to make room for the AM/PM circles.
+     * @param controller       Structure containing the accentColor and the 24-hour mode, which will
+     *                         tell us whether the circle's center is moved up slightly to make room
+     *                         for the AM/PM circles.
      * @param hasInnerCircle   Whether we have both an inner and an outer circle of numbers
      *                         that may be selected. Should be true for 24-hour mode in the hours circle.
      * @param disappearsOut    Whether the numbers' animation will have them disappearing out
@@ -82,8 +83,8 @@ public class RadialSelectorView extends View {
 
         Resources res = context.getResources();
 
-        int accentColor = controller.getAccentColor();
-        mPaint.setColor(accentColor);
+        mPaint.setColor(McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorPrimary));
         mPaint.setAntiAlias(true);
 
         mSelectionAlpha = McdtpUtils.night(context) ? SELECTED_ALPHA_THEME_DARK : SELECTED_ALPHA;
@@ -131,8 +132,8 @@ public class RadialSelectorView extends View {
      * @param isInnerCircle    Whether the selection should be in the inner circle or outer. Will be
      *                         ignored if hasInnerCircle was initialized to false.
      * @param forceDrawDot     Whether to force the dot in the center of the selection circle to be
-     *                         drawn. If false, the dot will be drawn only when the degrees is not a multiple of 30, i.e.
-     *                         the selection is not on a visible number.
+     *                         drawn. If false, the dot will be drawn only when the degrees is not a
+     *                         multiple of 30, i.e. the selection is not on a visible number.
      */
     public void setSelection(int selectionDegrees, boolean isInnerCircle, boolean forceDrawDot) {
         mSelectionDegrees = selectionDegrees;

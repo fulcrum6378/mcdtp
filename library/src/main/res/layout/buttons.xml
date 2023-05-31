@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="56dp"
     android:layout_gravity="center_vertical"
-    android:background="@android:color/transparent"
     android:gravity="end"
     android:orientation="horizontal"
     android:paddingBottom="8dp"
@@ -17,7 +16,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="@android:string/cancel" />
+        android:background="?buttonTint"
+        android:text="@android:string/cancel"
+        android:textColor="?colorOnSecondary" />
 
     <Button
         android:id="@+id/ok"
@@ -25,5 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:text="@android:string/ok" />
+        android:background="?buttonTint"
+        android:text="@android:string/ok"
+        android:textColor="?colorOnSecondary" />
 </LinearLayout>

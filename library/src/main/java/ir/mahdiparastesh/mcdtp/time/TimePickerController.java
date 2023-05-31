@@ -6,8 +6,6 @@ interface TimePickerController extends FontCustomiser {
 
     boolean is24HourMode();
 
-    int getAccentColor();
-
     TimePickerDialog.Version getVersion();
 
     void tryVibrate();

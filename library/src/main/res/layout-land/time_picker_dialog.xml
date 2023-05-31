@@ -29,8 +29,7 @@
             android:id="@+id/time_display_background"
             android:layout_width="@dimen/left_side_width"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/accent_color">
+            android:layout_weight="1">
 
             <include
                 layout="@layout/time_header_label"
@@ -39,6 +38,6 @@
                 android:layout_gravity="center" />
         </FrameLayout>
 
-        <include layout="@layout/done_button" />
+        <include layout="@layout/buttons" />
     </LinearLayout>
 </LinearLayout>

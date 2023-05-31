@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.MultiCalendarDTP" parent="Theme.AppCompat.DayNight" />
+    <!--
+      header:
+        background: ?colorPrimaryVariant
+        text: ?colorOnPrimary
+      selectedDateHeader:
+        background: ?colorPrimary
+        text: ?colorOnPrimary
+      main:
+        background: ?colorSurface
+        text: ?colorOnSurface
+      selectedDate + AmPm:
+        background: ?colorPrimary
+        text: ?colorOnPrimary
+      buttons:
+        background: ?buttonTint
+        text: ?colorOnSecondary
+    -->
+    <style name="Theme.MultiCalendarDTP" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">#FF6F00</item>
+        <item name="colorPrimaryVariant">#E36505</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#07CAAD</item>
+        <item name="colorOnSecondary">#03715F</item>
+        <item name="colorSurface">#ECF8F6</item>
+        <item name="colorOnSurface">#03715F</item>
+        <item name="buttonTint">@android:color/transparent</item>
+    </style>
 </resources>

@@ -113,7 +113,6 @@ public class YearPickerView<CAL extends Calendar>
             else {
                 v = (TextViewWithCircularIndicator) LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.year_label_text_view, parent, false);
-                v.setAccentColor(mController.getAccentColor());
                 v.setTypeface(McdtpUtils.normalFont(parent.getContext(), mController));
             }
             int year = mMinYear + position;

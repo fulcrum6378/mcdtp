@@ -103,12 +103,16 @@ public abstract class MonthView<CAL extends Calendar> extends View {
         mCalendar = McdtpUtils.createCalendar(
                 mController.getCalendarType(), mController.getTimeZone());
 
-        mDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_normal);
-        mMonthDayTextColor = ContextCompat.getColor(context, R.color.date_picker_month_day);
+        mDayTextColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorOnSurface);
+        mMonthDayTextColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorOnSurface);
         mDisabledDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_disabled);
         mHighlightedDayTextColor = ContextCompat.getColor(context, R.color.date_picker_text_highlighted);
-        mSelectedDayTextColor = ContextCompat.getColor(context, R.color.calendar_selected_day_text);
-        mTodayNumberColor = mController.getAccentColor();
+        mSelectedDayTextColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorOnPrimary);
+        mTodayNumberColor = McdtpUtils.themeColor(context,
+                com.google.android.material.R.attr.colorPrimary);
 
         mStringBuilder = new StringBuilder(50);
 
