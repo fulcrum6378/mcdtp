@@ -50,7 +50,7 @@ class DefaultTimepointLimiter implements TimepointLimiter {
 
     @SuppressWarnings("WeakerAccess")
     public static final Parcelable.Creator<DefaultTimepointLimiter> CREATOR
-            = new Parcelable.Creator<DefaultTimepointLimiter>() {
+            = new Parcelable.Creator<>() {
         public DefaultTimepointLimiter createFromParcel(Parcel in) {
             return new DefaultTimepointLimiter(in);
         }

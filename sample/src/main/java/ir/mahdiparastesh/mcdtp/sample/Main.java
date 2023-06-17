@@ -21,8 +21,8 @@ import ir.mahdiparastesh.mcdtp.time.TimePickerDialog;
 
 public class Main extends FragmentActivity {
     MainBinding b;
-    HashMap<String, Class<? extends Calendar>> calendars = new HashMap<>();
-    ArrayList<String> calIndex = new ArrayList<>();
+    final HashMap<String, Class<? extends Calendar>> calendars = new HashMap<>();
+    final ArrayList<String> calIndex = new ArrayList<>();
     String chosenCal;
     DatePickerDialog.Version chosenDVer;
     TimePickerDialog.Version chosenTVer;

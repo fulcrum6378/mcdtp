@@ -2,7 +2,6 @@
 <resources>
     <color name="date_picker_view_animator">@color/light_gray</color>
     <color name="date_picker_text_normal">@android:color/white</color>
-    <color name="date_picker_month_day">#b4b4b4</color>
     <color name="date_picker_text_disabled">#767676</color>
     <color name="date_picker_text_highlighted">@color/date_picker_text_normal</color>
 </resources>

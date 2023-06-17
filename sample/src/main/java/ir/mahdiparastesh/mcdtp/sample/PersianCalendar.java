@@ -4,6 +4,8 @@ import android.icu.util.Calendar;
 import android.icu.util.TimeZone;
 import android.icu.util.ULocale;
 import android.icu.util.ULocale.Category;
+
+import java.io.Serial;
 import java.util.Date;
 import java.util.Locale;
 
@@ -56,6 +58,7 @@ import java.util.Locale;
  */
 @SuppressWarnings({"unused", "SpellCheckingInspection"})
 public class PersianCalendar extends Calendar {
+    @Serial
     private static final long serialVersionUID = -6727306982975111643L;
     //-------------------------------------------------------------------------
     // Constants...

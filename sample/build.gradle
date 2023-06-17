@@ -3,7 +3,7 @@ plugins { id 'com.android.application' }
 android {
     namespace 'ir.mahdiparastesh.mcdtp.sample'
     compileSdk Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion '34.0.0 rc4'
+    buildToolsVersion '34.0.0'
 
     defaultConfig {
         applicationId 'ir.mahdiparastesh.mcdtp.sample'

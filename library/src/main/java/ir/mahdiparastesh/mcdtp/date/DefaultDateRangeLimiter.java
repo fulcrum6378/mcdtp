@@ -60,7 +60,7 @@ class DefaultDateRangeLimiter<CAL extends Calendar> implements DateRangeLimiter<
 
     @SuppressWarnings("WeakerAccess")
     public static final Parcelable.Creator<DefaultDateRangeLimiter<? extends Calendar>> CREATOR
-            = new Parcelable.Creator<DefaultDateRangeLimiter<? extends Calendar>>() {
+            = new Parcelable.Creator<>() {
         public DefaultDateRangeLimiter<? extends Calendar> createFromParcel(Parcel in) {
             return new DefaultDateRangeLimiter<>(in);
         }
