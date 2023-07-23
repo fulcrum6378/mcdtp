@@ -38,10 +38,20 @@ afterEvaluate { // You only need to set the access token and execute "gradle pub
     publishing {
         repositories {
             maven {
+                name 'GitHubPackages'
                 url 'https://maven.pkg.github.com/fulcrum6378/mcdtp'
                 credentials {
                     username 'fulcrum6378'
-                    password System.getenv("GHP_TOKEN")
+                    password System.getenv('GHP_TOKEN')
+                }
+            }
+            maven {
+                name 'OSSRH'
+                url 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+                // url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+                credentials {
+                    username 'fulcrum1378'
+                    password System.getenv('JiraPassword')
                 }
             }
         }
