@@ -45,15 +45,14 @@ afterEvaluate { // You only need to set the access token and execute "gradle pub
                     password System.getenv('GHP_TOKEN')
                 }
             }
-            maven {
+            /*maven {
                 name 'OSSRH'
                 url 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
-                // url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
                 credentials {
                     username 'fulcrum1378'
                     password System.getenv('JiraPassword')
                 }
-            }
+            }*/
         }
         publications {
             release(MavenPublication) {
